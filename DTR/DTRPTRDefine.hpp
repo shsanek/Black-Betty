@@ -11,6 +11,6 @@
 
 #include <stdio.h>
 
-#define PTRType(type) typedef shared_ptr<type> PTR##type;
+#define PTRType(type) typedef shared_ptr<type> type##_ptr;
 
 #endif /* DTRPTRDefine_hpp */

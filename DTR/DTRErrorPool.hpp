@@ -15,12 +15,12 @@
 
 namespace DTR {
     class ErrorPool{
-    list<PTRError> errors;
+    list<Error_ptr> errors;
     public:
         ErrorPool();
-        virtual list<PTRError>* getErrors();
+        virtual list<Error_ptr>* getErrors();
         virtual string allErros();
-        virtual void addErrors(PTRError error);
+        virtual void addErrors(Error_ptr error);
     };
 }
 

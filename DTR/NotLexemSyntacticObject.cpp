@@ -12,18 +12,18 @@ NotLexemSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObj
 }
 
 NotLexemSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject(string name,
-                             list<shared_ptr<SyntacticResultObject>> subobjects,
-                             list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
+                             list<SyntacticResultObject_ptr> subobjects,
+                             list<SyntacticResultObject_ptr> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
 }
 
 void NotLexemSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResultObjectData* inputData) {
     TokenAnalyzerCreater* data = (TokenAnalyzerCreater*)inputData;
     data->pushArgumentInStack();
     this->getDataFromSubobjects(data);
-    list<shared_ptr<Lexem>> lexems = data->popArgumentsInStack();
-    shared_ptr<Lexem> lexem = lexems.size()>1?shared_ptr<Lexem>(new ListLexem(lexems)):(*lexems.begin());
+    list<Lexem_ptr> lexems = data->popArgumentsInStack();
+    Lexem_ptr lexem = lexems.size()>1?Lexem_ptr(new ListLexem(lexems)):(*lexems.begin());
     if (this->subobjects.size() == 1) {
-        data->addedArguments(shared_ptr<Lexem>(new NotLexem(lexem)));
+        data->addedArguments(Lexem_ptr(new NotLexem(lexem)));
     } else {
         //error
     }
@@ -33,8 +33,8 @@ void NotLexemSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticRes
 NotLexemSyntacticObject::NotLexemSyntacticObject(int priority):SyntacticObject("not","not",priority,true){
 }
 
-shared_ptr<SyntacticResultObject> NotLexemSyntacticObject::resultObject(string name,
-                                                       list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                       list<shared_ptr<SyntacticResultObject>> headerObjects){
-    return shared_ptr<SyntacticResultObject>((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
+SyntacticResultObject_ptr NotLexemSyntacticObject::resultObject(string name,
+                                                       list<SyntacticResultObject_ptr> subobjects,
+                                                       list<SyntacticResultObject_ptr> headerObjects){
+    return SyntacticResultObject_ptr((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
 }

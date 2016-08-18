@@ -9,7 +9,7 @@
 #include "DTRIfLexem.hpp"
 using namespace DTR;
 
-IfLexem::IfLexem(std::shared_ptr<Lexem> lexem,std::shared_ptr<Lexem> resultLexem) {
+IfLexem::IfLexem(Lexem_ptr lexem,Lexem_ptr resultLexem) {
     this->lexem = lexem;
     this->resultLexem = resultLexem;
 }

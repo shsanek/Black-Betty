@@ -14,10 +14,10 @@
 
 namespace DTR {
 class SequenceLexem:public Lexem{
-    std::shared_ptr<Lexem> lexem;
+    Lexem_ptr lexem;
     int minNumberLexemsInSequence;
 public:
-    SequenceLexem(std::shared_ptr<Lexem> lexem,int minNumberLexemsInSequence);
+    SequenceLexem(Lexem_ptr lexem,int minNumberLexemsInSequence);
     virtual LexemSting stringLexemFromString(string str);
 };
 }

@@ -16,16 +16,16 @@
 
 namespace DTR {
     class TokenAnalyzerCreater:public SyntacticResultObjectData{
-        list< list<shared_ptr<Lexem>>> stack;
+        list< list<Lexem_ptr>> stack;
     public:
-        shared_ptr<DTRTokensAnalyzer> tokenAnalyzer;
+        DTRTokensAnalyzer_ptr tokenAnalyzer;
         
-        TokenAnalyzerCreater(shared_ptr<DTRTokensAnalyzer> analyzer) ;
+        TokenAnalyzerCreater(DTRTokensAnalyzer_ptr analyzer) ;
         TokenAnalyzerCreater();
         
-        void addedArguments(shared_ptr<Lexem> lexem) ;
+        void addedArguments(Lexem_ptr lexem) ;
         void pushArgumentInStack() ;
-        list<shared_ptr<Lexem>> popArgumentsInStack();
+        list<Lexem_ptr> popArgumentsInStack();
     };
 }
 

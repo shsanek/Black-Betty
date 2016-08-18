@@ -26,15 +26,15 @@ vector<LexemString> DTRLexemParser::preprocessor(list<LexemString> lexems){
 }
 
 
-shared_ptr<DTRTokensAnalyzer> DTRLexemParser::tokensAnalyzerFromStrin(string str) {
+DTRTokensAnalyzer_ptr DTRLexemParser::tokensAnalyzerFromStrin(string str) {
     list<LexemString> lexems = this->lexAnalyzer.lexemsFromSting (str);
     vector<LexemString> preprocessorLexems = preprocessor (lexems);
-    list<shared_ptr<SyntacticResultObject>> objects = this->syntacticAnalyzer.objectsFromLexems (preprocessorLexems);
-    shared_ptr<DTRTokensAnalyzer> analyzer = shared_ptr<DTRTokensAnalyzer>(new DTRTokensAnalyzer ());
+    list<SyntacticResultObject_ptr> objects = this->syntacticAnalyzer.objectsFromLexems (preprocessorLexems);
+    DTRTokensAnalyzer_ptr analyzer = DTRTokensAnalyzer_ptr(new DTRTokensAnalyzer ());
     
     if (debugeMod) {
         string debugeText = "";
-        for (list<shared_ptr<SyntacticResultObject>>::iterator obj = objects.begin();
+        for (list<SyntacticResultObject_ptr>::iterator obj = objects.begin();
              obj != objects.end();
              ++obj){
             debugeText += "\n\n";
@@ -43,7 +43,7 @@ shared_ptr<DTRTokensAnalyzer> DTRLexemParser::tokensAnalyzerFromStrin(string str
         printf("%s",debugeText.c_str());
     }
     TokenAnalyzerCreater* creater = new TokenAnalyzerCreater(analyzer);
-    for (list<shared_ptr<SyntacticResultObject>>::iterator obj = objects.begin();
+    for (list<SyntacticResultObject_ptr>::iterator obj = objects.begin();
          obj != objects.end();
          ++obj){
         (*obj)->getData(creater);
@@ -53,44 +53,44 @@ shared_ptr<DTRTokensAnalyzer> DTRLexemParser::tokensAnalyzerFromStrin(string str
 
 DTRLexemParser::DTRLexemParser () {
     debugeMod = false;
-    shared_ptr<Lexem> quoteLexem = shared_ptr<Lexem>((Lexem*) new SymbosLexem ("\'"));
-    list<shared_ptr<Lexem>> stringLexemTmp1 = list<shared_ptr<Lexem>>();
-    stringLexemTmp1.push_back(shared_ptr<Lexem>((Lexem*)new NotLexem(quoteLexem)));
-    stringLexemTmp1.push_back(shared_ptr<Lexem>((Lexem*)new SymbosLexem ("\\\'")));
+    Lexem_ptr quoteLexem = Lexem_ptr((Lexem*) new SymbosLexem ("\'"));
+    list<Lexem_ptr> stringLexemTmp1 = list<Lexem_ptr>();
+    stringLexemTmp1.push_back(Lexem_ptr((Lexem*)new NotLexem(quoteLexem)));
+    stringLexemTmp1.push_back(Lexem_ptr((Lexem*)new SymbosLexem ("\\\'")));
     
-    list<shared_ptr<Lexem>> stringLexemTmp2 = list<shared_ptr<Lexem>>();
+    list<Lexem_ptr> stringLexemTmp2 = list<Lexem_ptr>();
     stringLexemTmp2.push_back(quoteLexem);
-    stringLexemTmp2.push_back(shared_ptr<Lexem>((Lexem*)new SequenceLexem(shared_ptr<Lexem>((Lexem*)new ListLexem(stringLexemTmp1)),0)));
+    stringLexemTmp2.push_back(Lexem_ptr((Lexem*)new SequenceLexem(Lexem_ptr((Lexem*)new ListLexem(stringLexemTmp1)),0)));
     stringLexemTmp2.push_back(quoteLexem);
     
-    shared_ptr<Lexem> stringLexem = shared_ptr<Lexem>((Lexem*)new ConcatenationLexem(stringLexemTmp2));
+    Lexem_ptr stringLexem = Lexem_ptr((Lexem*)new ConcatenationLexem(stringLexemTmp2));
     DTRTokensAnalyzer analyzer = DTRTokensAnalyzer ();
     analyzer.addLexemWithKey (stringLexem, "const_string");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("[")), "open_square_bracket");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("]")), "close_square_bracket");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("(")), "open_bracket");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem (")")), "close_bracket");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("+")), "plus");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem (",")), "comma");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("*")), "clinical");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("?")), "question");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SequenceLexem(shared_ptr<Lexem>((Lexem*)new SymbosLexem (" ")),1)), "spasing");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem (";")), "end_row");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("\n")), "new_row");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem (":")), "delimiter");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("|")), "concatenation");
-    analyzer.addLexemWithKey (shared_ptr<Lexem>(new SymbosLexem ("!")), "not");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("[")), "open_square_bracket");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("]")), "close_square_bracket");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("(")), "open_bracket");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem (")")), "close_bracket");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("+")), "plus");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem (",")), "comma");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("*")), "clinical");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("?")), "question");
+    analyzer.addLexemWithKey (Lexem_ptr(new SequenceLexem(Lexem_ptr((Lexem*)new SymbosLexem (" ")),1)), "spasing");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem (";")), "end_row");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("\n")), "new_row");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem (":")), "delimiter");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("|")), "concatenation");
+    analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("!")), "not");
     lexAnalyzer = analyzer;
     
     this->syntacticAnalyzer = DTRSyntacticAnalyzer ();
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new DelimiterSyntacticObject(1)), "delimiter");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new SyntacticObject("end_row","end_row",0)), "row");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new LexemSyntacticObject(7)), "lexem");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new RangeSyntacticObject(7)), "range");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new NotLexemSyntacticObject(7)), "not");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new ClinicalSyntacticObject(6)), "clinical");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new PlusSyntacticObject(6)), "plus");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new SyntacticObject("comma","comma",3,true)), "comma");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new ConcatenationSyntacticObject(4)), "concatenation");
-    syntacticAnalyzer.addSyntaxObject (shared_ptr<SyntacticObject>(new QuestionSyntacticObject(5)), "question");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new DelimiterSyntacticObject(1)), "delimiter");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new SyntacticObject("end_row","end_row",0)), "row");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new LexemSyntacticObject(7)), "lexem");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new RangeSyntacticObject(7)), "range");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new NotLexemSyntacticObject(7)), "not");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new ClinicalSyntacticObject(6)), "clinical");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new PlusSyntacticObject(6)), "plus");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new SyntacticObject("comma","comma",3,true)), "comma");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new ConcatenationSyntacticObject(4)), "concatenation");
+    syntacticAnalyzer.addSyntaxObject (SyntacticObject_ptr(new QuestionSyntacticObject(5)), "question");
 }

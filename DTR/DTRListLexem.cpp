@@ -9,13 +9,13 @@
 #include "DTRListLexem.hpp"
 using namespace DTR;
 
-ListLexem::ListLexem(list<std::shared_ptr<Lexem>> lexems) {
+ListLexem::ListLexem(list<Lexem_ptr> lexems) {
     this->lexems = lexems;
 }
 
 Lexem::LexemSting ListLexem::stringLexemFromString(string str){
     LexemSting resultString = LexemSting();
-    for (list<std::shared_ptr<Lexem>>::iterator lx = lexems.begin(); lx != lexems.end(); ++lx){
+    for (list<Lexem_ptr>::iterator lx = lexems.begin(); lx != lexems.end(); ++lx){
         LexemSting value = (*lx)->stringLexemFromString (str);
         if (value.found) {
             if (!resultString) {

@@ -20,7 +20,7 @@ SyntacticResultObjectData::~SyntacticResultObjectData(){
 }
 
 void SyntacticResultObject::getDataFromHeadObjects(SyntacticResultObjectData * dataObject){
-    for (list<shared_ptr<SyntacticResultObject>>::iterator i = this->headerObjects.begin();
+    for (list<SyntacticResultObject_ptr>::iterator i = this->headerObjects.begin();
          i != this->headerObjects.end();
          ++i) {
         (*i)->getData(dataObject);
@@ -28,7 +28,7 @@ void SyntacticResultObject::getDataFromHeadObjects(SyntacticResultObjectData * d
 }
 
 void SyntacticResultObject::getDataFromSubobjects(SyntacticResultObjectData * dataObject){
-    for (list<shared_ptr<SyntacticResultObject>>::iterator i = this->subobjects.begin();
+    for (list<SyntacticResultObject_ptr>::iterator i = this->subobjects.begin();
          i != this->subobjects.end();
          ++i) {
         (*i)->getData(dataObject);
@@ -59,7 +59,7 @@ string SyntacticResultObject::debugingStringInLevel(int level){
     
     if (this->headerObjects.size() > 0) {
         resultString += "\n" + spasing + "HeaderObjects:{";
-        for (list<shared_ptr<SyntacticResultObject>>::iterator i = this->headerObjects.begin();
+        for (list<SyntacticResultObject_ptr>::iterator i = this->headerObjects.begin();
              i != this->headerObjects.end();
              i++) {
             resultString += "\n" + (*i)->debugingStringInLevel (level + 1);
@@ -69,7 +69,7 @@ string SyntacticResultObject::debugingStringInLevel(int level){
     
     if (this->subobjects.size() > 0) {
         resultString += "\n" + spasing + "Subobjects:{";
-        for (list<shared_ptr<SyntacticResultObject>>::iterator i = this->subobjects.begin();
+        for (list<SyntacticResultObject_ptr>::iterator i = this->subobjects.begin();
              i != this->subobjects.end();
              ++i) {
             resultString += "\n" + (*i)->debugingStringInLevel (level + 1);
@@ -88,8 +88,8 @@ SyntacticResultObject::SyntacticResultObject(LexemString lexem){
 }
 
 SyntacticResultObject::SyntacticResultObject(string name,
-                      list<shared_ptr<SyntacticResultObject>> subobjects,
-                      list<shared_ptr<SyntacticResultObject>> headerObjects) {
+                      list<SyntacticResultObject_ptr> subobjects,
+                      list<SyntacticResultObject_ptr> headerObjects) {
     this->name = name;
     this->subobjects = subobjects;
     this->headerObjects = headerObjects;

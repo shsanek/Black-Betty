@@ -13,8 +13,8 @@ RangeSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject
 }
 
 RangeSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject(string name,
-                             list<shared_ptr<SyntacticResultObject>> subobjects,
-                             list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
+                             list<SyntacticResultObject_ptr> subobjects,
+                             list<SyntacticResultObject_ptr> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
 }
 
 void RangeSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResultObjectData* inputData) {
@@ -31,7 +31,7 @@ void RangeSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResult
             value2 = this->subobjects.back()->lexem.value;
         }
         if (value1.length() == 1 && value2.length() == 1) {
-            data->addedArguments(shared_ptr<DTR::Lexem>(new RangeLexem(value1[0],value2[0])));
+            data->addedArguments(Lexem_ptr(new RangeLexem(value1[0],value2[0])));
         }
     } else {
         //error
@@ -41,8 +41,8 @@ void RangeSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResult
 RangeSyntacticObject::RangeSyntacticObject(int priority):SyntacticObject("open_square_bracket","close_square_bracket",priority){
 }
 
-shared_ptr<SyntacticResultObject> RangeSyntacticObject::resultObject(string name,
-                                                       list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                       list<shared_ptr<SyntacticResultObject>> headerObjects){
-    return shared_ptr<SyntacticResultObject>((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
+SyntacticResultObject_ptr RangeSyntacticObject::resultObject(string name,
+                                                       list<SyntacticResultObject_ptr> subobjects,
+                                                       list<SyntacticResultObject_ptr> headerObjects){
+    return SyntacticResultObject_ptr((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
 }

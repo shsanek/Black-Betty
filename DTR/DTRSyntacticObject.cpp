@@ -17,8 +17,8 @@ SyntacticObject::SyntacticObject (string startSymbol, string endSymbol,int prior
     this->isOperator = isOperator;
 }
 
-shared_ptr<SyntacticResultObject> SyntacticObject::resultObject(string name,
-                                                                list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                                list<shared_ptr<SyntacticResultObject>> headerObjects){
-    return shared_ptr<SyntacticResultObject>(new SyntacticResultObject (name, subobjects, headerObjects));
+SyntacticResultObject_ptr SyntacticObject::resultObject(string name,
+                                                                list<SyntacticResultObject_ptr> subobjects,
+                                                                list<SyntacticResultObject_ptr> headerObjects){
+    return SyntacticResultObject_ptr(new SyntacticResultObject (name, subobjects, headerObjects));
 }

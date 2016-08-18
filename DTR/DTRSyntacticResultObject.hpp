@@ -13,6 +13,7 @@
 #include <list>
 #include <vector>
 #include "DTRLexemString.hpp"
+#include "DTRPTRDefine.hpp"
 
 using namespace std;
 
@@ -26,19 +27,22 @@ namespace DTR
         virtual ~SyntacticResultObjectData();
     };
     
+    class SyntacticResultObject;
+    PTRType(SyntacticResultObject);
+    
     class SyntacticResultObject{
         string debugingStringInLevel(int level);
     public:
         string name;
         LexemString lexem;
-        list<shared_ptr<SyntacticResultObject>> headerObjects;
-        list<shared_ptr<SyntacticResultObject>> subobjects;
+        list<SyntacticResultObject_ptr> headerObjects;
+        list<SyntacticResultObject_ptr> subobjects;
         
         SyntacticResultObject(LexemString lexem);
         
         SyntacticResultObject(string name,
-                              list<shared_ptr<SyntacticResultObject>> subobjects,
-                              list<shared_ptr<SyntacticResultObject>> headerObjects) ;
+                              list<SyntacticResultObject_ptr> subobjects,
+                              list<SyntacticResultObject_ptr> headerObjects) ;
         
         string debugingString();
         
@@ -46,6 +50,7 @@ namespace DTR
         virtual void getDataFromSubobjects(SyntacticResultObjectData * dataObject);
         virtual void getData(SyntacticResultObjectData * dataObject);
     };
+    
 }
 
 #endif /* DTRSyntacticResultObject_hpp */

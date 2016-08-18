@@ -10,16 +10,16 @@
 
 using namespace DTR;
 ErrorPool::ErrorPool(){
-    this->errors = list<PTRError>();
+    this->errors = list<Error_ptr>();
 }
 
-list<PTRError>* ErrorPool::getErrors(){
+list<Error_ptr>* ErrorPool::getErrors(){
     return &this->errors;
 }
 
 string ErrorPool::allErros(){
     string result = "";
-    for (list<PTRError>::iterator i = this->errors.begin();
+    for (list<Error_ptr>::iterator i = this->errors.begin();
          i != this->errors.end();
          ++i) {
         result += (*i)->text + " ";
@@ -27,6 +27,6 @@ string ErrorPool::allErros(){
     return result;
 }
 
-void ErrorPool::addErrors(PTRError error){
+void ErrorPool::addErrors(Error_ptr error){
     this->errors.push_back(error);
 }

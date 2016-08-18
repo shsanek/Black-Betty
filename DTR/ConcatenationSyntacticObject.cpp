@@ -13,24 +13,24 @@ ConcatenationSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResu
 }
 
 ConcatenationSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject(string name,
-                                                                                         list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                                                         list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
+                                                                                         list<SyntacticResultObject_ptr> subobjects,
+                                                                                         list<SyntacticResultObject_ptr> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
 }
 
 void ConcatenationSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResultObjectData* inputData) {
     TokenAnalyzerCreater* data = (TokenAnalyzerCreater*)inputData;
     data->pushArgumentInStack();
     this->getDataFromHeadObjects(data);
-    list<shared_ptr<Lexem>> alexems = data->popArgumentsInStack();
+    list<Lexem_ptr> alexems = data->popArgumentsInStack();
     
     data->pushArgumentInStack();
     this->getDataFromSubobjects(data);
-    list<shared_ptr<Lexem>> blexems = data->popArgumentsInStack();
+    list<Lexem_ptr> blexems = data->popArgumentsInStack();
     
     alexems.splice(alexems.end(),blexems);
     
     if (alexems.size() > 0) {
-        data->addedArguments(shared_ptr<Lexem>(new ConcatenationLexem(alexems)));
+        data->addedArguments(Lexem_ptr(new ConcatenationLexem(alexems)));
     } else {
         //error
     }
@@ -39,8 +39,8 @@ void ConcatenationSyntacticObject::CurrentSyntacticResultObject::getData(Syntact
 ConcatenationSyntacticObject::ConcatenationSyntacticObject(int priority):SyntacticObject("concatenation","concatenation",priority,true){
 }
 
-shared_ptr<SyntacticResultObject> ConcatenationSyntacticObject::resultObject(string name,
-                                                                             list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                                             list<shared_ptr<SyntacticResultObject>> headerObjects){
-    return shared_ptr<SyntacticResultObject>((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
+SyntacticResultObject_ptr ConcatenationSyntacticObject::resultObject(string name,
+                                                                             list<SyntacticResultObject_ptr> subobjects,
+                                                                             list<SyntacticResultObject_ptr> headerObjects){
+    return SyntacticResultObject_ptr((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
 }

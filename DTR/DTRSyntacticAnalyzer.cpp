@@ -29,7 +29,7 @@ DTRSyntacticAnalyzer::AnalyzerObject::AnalyzerObject(list<LexemString> headerLex
 
 DTRSyntacticAnalyzer::AnalyzerObject DTRSyntacticAnalyzer::searchOfStrartObjectInLexems(vector<LexemString> lexems,
                                                                                         int indexSymbol,
-                                                                                        shared_ptr<SyntacticObject> currentObject){
+                                                                                        SyntacticObject_ptr currentObject){
     int startSymbol = indexSymbol;
     list<LexemString> bodyLexems = list<LexemString>();
     int stack = 0;
@@ -58,7 +58,7 @@ DTRSyntacticAnalyzer::AnalyzerObject DTRSyntacticAnalyzer::searchOfStrartObjectI
     while (indexSymbol >= 0) {
         LexemString lex = lexems [indexSymbol];
         bool addInHeader = true;
-        for (list<shared_ptr<SyntacticObject>>::iterator i = syntacticObject.begin();
+        for (list<SyntacticObject_ptr>::iterator i = syntacticObject.begin();
              i != syntacticObject.end();
              ++i) {
             if ((*i)->priority <= currentObject->priority &&
@@ -84,19 +84,19 @@ DTRSyntacticAnalyzer::AnalyzerObject DTRSyntacticAnalyzer::searchOfStrartObjectI
 }
 
 
-void DTRSyntacticAnalyzer::addSyntaxObject(shared_ptr<SyntacticObject> syntaxObject, string key) {
+void DTRSyntacticAnalyzer::addSyntaxObject(SyntacticObject_ptr syntaxObject, string key) {
     syntaxObject->key = key;
     this->syntacticObject.push_front(syntaxObject);
     
 }
 
-list<shared_ptr<SyntacticResultObject>> DTRSyntacticAnalyzer::objectsFromLexems(vector<LexemString> lexems){
+list<SyntacticResultObject_ptr> DTRSyntacticAnalyzer::objectsFromLexems(vector<LexemString> lexems){
     if (lexems.size() == 0) {
-        return list<shared_ptr<SyntacticResultObject>>();
+        return list<SyntacticResultObject_ptr>();
     }
-    list<shared_ptr<SyntacticResultObject>> result = list<shared_ptr<SyntacticResultObject>>();
+    list<SyntacticResultObject_ptr> result = list<SyntacticResultObject_ptr>();
 //    if (lexems.size() == 1) {
-//        result.push_front(shared_ptr<SyntacticResultObject>(new SyntacticResultObject (lexems [0])));
+//        result.push_front(SyntacticResultObject_ptr(new SyntacticResultObject (lexems [0])));
 //        return result;
 //    }
     int indexSymbol = (int)lexems.size() - 1;
@@ -104,12 +104,12 @@ list<shared_ptr<SyntacticResultObject>> DTRSyntacticAnalyzer::objectsFromLexems(
         LexemString lex = lexems [indexSymbol];
         
         bool objectFound = false;
-        for (list<shared_ptr<SyntacticObject>>::iterator i = syntacticObject.begin();
+        for (list<SyntacticObject_ptr>::iterator i = syntacticObject.begin();
              i != syntacticObject.end();
              ++i) {
             if ((*i)->endSymbol == lex.lexemName) {
                 AnalyzerObject analyzerObject = searchOfStrartObjectInLexems(lexems,indexSymbol,(*i));
-                shared_ptr<SyntacticResultObject> resultObject = (*i)->resultObject ((*i)->key,
+                SyntacticResultObject_ptr resultObject = (*i)->resultObject ((*i)->key,
                                                                                      objectsFromLexems (analyzerObject.lexems),
                                                                                      objectsFromLexems (analyzerObject.headerLexems));
                 if ((*i)->isOperator && result.size() > 0) {
@@ -125,7 +125,7 @@ list<shared_ptr<SyntacticResultObject>> DTRSyntacticAnalyzer::objectsFromLexems(
             }
         }
         if (!objectFound) {
-            result.push_front(shared_ptr<SyntacticResultObject>(new SyntacticResultObject (lexems [indexSymbol])));
+            result.push_front(SyntacticResultObject_ptr(new SyntacticResultObject (lexems [indexSymbol])));
             indexSymbol--;
         }
     }
@@ -133,5 +133,5 @@ list<shared_ptr<SyntacticResultObject>> DTRSyntacticAnalyzer::objectsFromLexems(
 }
 
 DTRSyntacticAnalyzer::DTRSyntacticAnalyzer (){
-    this->syntacticObject = list<shared_ptr<SyntacticObject>> ();
+    this->syntacticObject = list<SyntacticObject_ptr> ();
 }

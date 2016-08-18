@@ -22,7 +22,6 @@ namespace DTR {
         string text;
         unsigned int code;
     };
-    //typedef shared_ptr<Error> PTRError;
     PTRType(Error);
 };
 

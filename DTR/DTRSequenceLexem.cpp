@@ -9,7 +9,7 @@
 #include "DTRSequenceLexem.hpp"
 using namespace DTR;
 
-SequenceLexem::SequenceLexem(std::shared_ptr<Lexem> lexem,int minNumberLexemsInSequence) {
+SequenceLexem::SequenceLexem(Lexem_ptr lexem,int minNumberLexemsInSequence) {
     this->lexem = lexem;
     this->minNumberLexemsInSequence = minNumberLexemsInSequence;
 }
