@@ -16,7 +16,6 @@
 		E8E664DA1D64B34800446EF3 /* LexemSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D81D64B34800446EF3 /* LexemSyntacticObject.cpp */; };
 		E8E664DD1D64B37300446EF3 /* NotLexemSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664DB1D64B37300446EF3 /* NotLexemSyntacticObject.cpp */; };
 		E8E664E01D64B3B100446EF3 /* RangeSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664DE1D64B3B100446EF3 /* RangeSyntacticObject.cpp */; };
-		E8E664E31D64B3C800446EF3 /* CommaSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664E11D64B3C800446EF3 /* CommaSyntacticObject.cpp */; };
 		E8E664E61D64B3D900446EF3 /* ClinicalSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664E41D64B3D900446EF3 /* ClinicalSyntacticObject.cpp */; };
 		E8E664E91D64B3EC00446EF3 /* QuestionSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664E71D64B3EC00446EF3 /* QuestionSyntacticObject.cpp */; };
 		E8E664EC1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664EA1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp */; };
@@ -66,8 +65,6 @@
 		E8E664DC1D64B37300446EF3 /* NotLexemSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NotLexemSyntacticObject.hpp; sourceTree = "<group>"; };
 		E8E664DE1D64B3B100446EF3 /* RangeSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RangeSyntacticObject.cpp; sourceTree = "<group>"; };
 		E8E664DF1D64B3B100446EF3 /* RangeSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RangeSyntacticObject.hpp; sourceTree = "<group>"; };
-		E8E664E11D64B3C800446EF3 /* CommaSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommaSyntacticObject.cpp; sourceTree = "<group>"; };
-		E8E664E21D64B3C800446EF3 /* CommaSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommaSyntacticObject.hpp; sourceTree = "<group>"; };
 		E8E664E41D64B3D900446EF3 /* ClinicalSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClinicalSyntacticObject.cpp; sourceTree = "<group>"; };
 		E8E664E51D64B3D900446EF3 /* ClinicalSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ClinicalSyntacticObject.hpp; sourceTree = "<group>"; };
 		E8E664E71D64B3EC00446EF3 /* QuestionSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuestionSyntacticObject.cpp; sourceTree = "<group>"; };
@@ -135,8 +132,6 @@
 				E8E664DB1D64B37300446EF3 /* NotLexemSyntacticObject.cpp */,
 				E8E664DF1D64B3B100446EF3 /* RangeSyntacticObject.hpp */,
 				E8E664DE1D64B3B100446EF3 /* RangeSyntacticObject.cpp */,
-				E8E664E21D64B3C800446EF3 /* CommaSyntacticObject.hpp */,
-				E8E664E11D64B3C800446EF3 /* CommaSyntacticObject.cpp */,
 				E8E664F11D64CB1400446EF3 /* PlusClinicalSyntacticObject.hpp */,
 				E8E664F01D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp */,
 				E8E664E51D64B3D900446EF3 /* ClinicalSyntacticObject.hpp */,
@@ -295,7 +290,6 @@
 				E8E855E81D5D94E300ED360E /* DTRSymbosLexem.cpp in Sources */,
 				E8E855F41D5D978E00ED360E /* DTRSequenceLexem.cpp in Sources */,
 				E80CB0131D5DBF3000FFD217 /* DTRLexemString.cpp in Sources */,
-				E8E664E31D64B3C800446EF3 /* CommaSyntacticObject.cpp in Sources */,
 				E8E855EE1D5D975200ED360E /* DTRListLexem.cpp in Sources */,
 				E8E855D81D5D84EE00ED360E /* main.cpp in Sources */,
 				E8E664EC1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp in Sources */,

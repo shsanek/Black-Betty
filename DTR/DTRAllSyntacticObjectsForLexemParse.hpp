@@ -13,7 +13,6 @@
 #include "LexemSyntacticObject.hpp"
 #include "NotLexemSyntacticObject.hpp"
 #include "RangeSyntacticObject.hpp"
-#include "CommaSyntacticObject.hpp"
 #include "ClinicalSyntacticObject.hpp"
 #include "QuestionSyntacticObject.hpp"
 #include "ConcatenationSyntacticObject.hpp"

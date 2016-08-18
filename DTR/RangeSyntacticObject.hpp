@@ -19,43 +19,20 @@ namespace DTR {
     public:
         class CurrentSyntacticResultObject:public SyntacticResultObject{
         public:
-            CurrentSyntacticResultObject(LexemString lexem):SyntacticResultObject(lexem) {
-            }
+            CurrentSyntacticResultObject(LexemString lexem);
             
             CurrentSyntacticResultObject(string name,
                                          list<shared_ptr<SyntacticResultObject>> subobjects,
-                                         list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
-            }
-            virtual void getData(SyntacticResultObjectData* inputData) {
-                TokenAnalyzerCreater* data = (TokenAnalyzerCreater*)inputData;
-                if (this->subobjects.size() == 2) {
-                    string value1 = "";
-                    string value2 = "";
-                    if (this->subobjects.front()->name == "" &&
-                        this->subobjects.front()->lexem.lexemName == "const_string") {
-                        value1 = this->subobjects.front()->lexem.value;
-                    }
-                    if (this->subobjects.back()->name == "" &&
-                        this->subobjects.back()->lexem.lexemName == "const_string") {
-                        value2 = this->subobjects.back()->lexem.value;
-                    }
-                    if (value1.length() == 1 && value2.length() == 1) {
-                        data->addedArguments(shared_ptr<DTR::Lexem>(new RangeLexem(value1[0],value2[0])));
-                    }
-                } else {
-                    //error
-                }
-            }
+                                         list<shared_ptr<SyntacticResultObject>> headerObjects);
+            
+            virtual void getData(SyntacticResultObjectData* inputData);
         };
         
-        RangeSyntacticObject(int priority):SyntacticObject("open_square_bracket","close_square_bracket",priority){
-        }
+        RangeSyntacticObject(int priority);
         
         virtual shared_ptr<SyntacticResultObject> resultObject(string name,
                                                                list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                               list<shared_ptr<SyntacticResultObject>> headerObjects){
-            return shared_ptr<SyntacticResultObject>((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
-        }
+                                                               list<shared_ptr<SyntacticResultObject>> headerObjects);
     };
 }
 

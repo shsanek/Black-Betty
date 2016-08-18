@@ -19,41 +19,20 @@ namespace DTR {
     public:
         class CurrentSyntacticResultObject:public SyntacticResultObject{
         public:
-            CurrentSyntacticResultObject(LexemString lexem):SyntacticResultObject(lexem) {
-            }
+            CurrentSyntacticResultObject(LexemString lexem);
             
             CurrentSyntacticResultObject(string name,
                                          list<shared_ptr<SyntacticResultObject>> subobjects,
-                                         list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
-            }
+                                         list<shared_ptr<SyntacticResultObject>> headerObjects);
             
-            virtual void getData(SyntacticResultObjectData* inputData) {
-                TokenAnalyzerCreater* data = (TokenAnalyzerCreater*)inputData;
-                data->pushArgumentInStack();
-                this->getDataFromHeadObjects(data);
-                list<shared_ptr<Lexem>> alexems = data->popArgumentsInStack();
-                shared_ptr<Lexem> alexem = alexems.size()>1?shared_ptr<Lexem>(new ListLexem(alexems)):(*alexems.begin());
-                
-                data->pushArgumentInStack();
-                this->getDataFromSubobjects(data);
-                list<shared_ptr<Lexem>> blexems = data->popArgumentsInStack();
-                shared_ptr<Lexem> blexem = blexems.size()>1?shared_ptr<Lexem>(new ListLexem(blexems)):(*blexems.begin());
-                if (alexems.size() > 0 && blexems.size() > 0) {
-                    data->addedArguments(shared_ptr<Lexem>(new IfLexem(alexem,blexem)));
-                } else {
-                    //error
-                }
-            }
+            virtual void getData(SyntacticResultObjectData* inputData);
         };
         
-        QuestionSyntacticObject(int priority):SyntacticObject("question","question",priority,true){
-        }
+        QuestionSyntacticObject(int priority);
         
         virtual shared_ptr<SyntacticResultObject> resultObject(string name,
                                                                list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                               list<shared_ptr<SyntacticResultObject>> headerObjects){
-            return shared_ptr<SyntacticResultObject>(new CurrentSyntacticResultObject (name, subobjects, headerObjects));
-        }
+                                                               list<shared_ptr<SyntacticResultObject>> headerObjects);
     };
 }
 

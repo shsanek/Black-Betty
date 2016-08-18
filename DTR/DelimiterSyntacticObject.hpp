@@ -19,38 +19,21 @@ namespace DTR {
     public:
         class CurrentSyntacticResultObject:public SyntacticResultObject{
         public:
-            CurrentSyntacticResultObject(LexemString lexem):SyntacticResultObject(lexem) {
-            }
+            CurrentSyntacticResultObject(LexemString lexem);
             
             CurrentSyntacticResultObject(string name,
                                          list<shared_ptr<SyntacticResultObject>> subobjects,
-                                         list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
-            }
+                                         list<shared_ptr<SyntacticResultObject>> headerObjects);
             
-            virtual void getData(SyntacticResultObjectData* inputData) {
-                TokenAnalyzerCreater* data = (TokenAnalyzerCreater*)inputData;
-                data->pushArgumentInStack();
-                this->getDataFromSubobjects(data);
-                list<shared_ptr<Lexem>> lexems = data->popArgumentsInStack();
-                shared_ptr<Lexem> lexem = lexems.size()>1?shared_ptr<Lexem>(new ListLexem(lexems)):(*lexems.begin());
-                
-                if (this->headerObjects.size() == 1 &&
-                    (*this->headerObjects.begin())->name == "" &&
-                    (*this->headerObjects.begin())->lexem.lexemName == "const_string") {
-                    data->tokenAnalyzer->addLexemWithKey(lexem, (*this->headerObjects.begin())->lexem.value);
-                } else {
-                    //error
-                }
-            }
+            virtual void getData(SyntacticResultObjectData* inputData);
             
         };
         
-        DelimiterSyntacticObject(int priority):SyntacticObject("delimiter","delimiter",priority,true){
-        }
+        DelimiterSyntacticObject(int priority);
         
-        virtual shared_ptr<SyntacticResultObject> resultObject(string name,list<shared_ptr<SyntacticResultObject>> subobjects,list<shared_ptr<SyntacticResultObject>> headerObjects){
-            return shared_ptr<SyntacticResultObject> ((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
-        }
+        virtual shared_ptr<SyntacticResultObject> resultObject(string name,
+                                                               list<shared_ptr<SyntacticResultObject>> subobjects,
+                                                               list<shared_ptr<SyntacticResultObject>> headerObjects);
     };
 }
 
