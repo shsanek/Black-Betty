@@ -15,6 +15,7 @@
 #include "DTRAllLexems.h"
 #include <list>
 #include "DTRAllSyntacticObjectsForLexemParse.hpp"
+#include "DTRTextError.hpp"
 
 using namespace std;
 using namespace DTR;
@@ -27,11 +28,12 @@ class DTRLexemParser{
     DTRSyntacticAnalyzer syntacticAnalyzer;
     
     vector<LexemString> preprocessor(list<LexemString> lexems);
+    ErrorPool_ptr errorPool;
 public:
     bool debugeMod;
     
-    DTRLexemParser () ;
-    DTRTokensAnalyzer_ptr tokensAnalyzerFromStrin(string str) ;
+    DTRLexemParser (ErrorPool_ptr errorPool);
+    DTRTokensAnalyzer_ptr tokensAnalyzerFromStrin(string str,ErrorPool_ptr errorPool) ;
 };
 
 #endif /* DTRLexemParser_hpp */

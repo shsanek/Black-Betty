@@ -10,6 +10,7 @@
 #define LexemString_hpp
 
 #include <iostream>
+#include "DTRStruct.hpp"
 
 using namespace std;
 
@@ -21,8 +22,9 @@ namespace DTR {
     public:
         string value;
         string lexemName;
-        LexemString(string value, string lexemName);
-        LexemString();
+        Position position;
+        LexemString(string value, string lexemName,Position position = Position());
+        LexemString(Position position = Position());
     };
 };
 

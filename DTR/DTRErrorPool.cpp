@@ -22,7 +22,7 @@ string ErrorPool::allErros(){
     for (list<Error_ptr>::iterator i = this->errors.begin();
          i != this->errors.end();
          ++i) {
-        result += (*i)->text + " ";
+        result += (*i)->text + "\n";
     }
     return result;
 }

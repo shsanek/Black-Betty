@@ -15,6 +15,8 @@
 #include "DTRLexemString.hpp"
 #include "DTRPTRDefine.hpp"
 
+#include "DTRTextError.hpp"
+
 using namespace DTR;
 using namespace std;
 
@@ -24,8 +26,9 @@ using namespace std;
 /// </summary>
 class DTRTokensAnalyzer{
     list<Lexem_ptr> lexems;
+    ErrorPool_ptr errorPool;
 public:
-    DTRTokensAnalyzer();
+    DTRTokensAnalyzer(ErrorPool_ptr errorPool);
     void addLexemWithKey(Lexem_ptr lexem,string key);
     list<LexemString> lexemsFromSting(string str);
 };

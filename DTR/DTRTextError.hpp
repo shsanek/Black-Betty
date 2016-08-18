@@ -12,13 +12,15 @@
 #include <stdio.h>
 #include "DTRError.hpp"
 #include "DTRStruct.hpp"
+#include "DTRErrorPool.hpp"
 
 namespace DTR {
     class TextAnalyzerError:public Error{
     public:
-        TextAnalyzerError(Position position,unsigned int code,string text,string name = "");
+        TextAnalyzerError(Position position,unsigned int code,string text,string name = "Error");
         Position position;
     };
+    PTRType(TextAnalyzerError);
 }
 
 #endif /* DTRTokensAnalyzerError_hpp */

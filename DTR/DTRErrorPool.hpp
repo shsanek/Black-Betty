@@ -22,6 +22,7 @@ namespace DTR {
         virtual string allErros();
         virtual void addErrors(Error_ptr error);
     };
+    PTRType(ErrorPool);
 }
 
 #endif /* DTRErrorPool_hpp */

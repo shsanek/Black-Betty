@@ -10,11 +10,11 @@
 
 using namespace DTR;
 
-LexemString::LexemString(string value, string lexemName) {
+LexemString::LexemString(string value, string lexemName,Position position):position(position) {
     this->value = value;
     this->lexemName = lexemName;
 }
 
-LexemString::LexemString(){
+LexemString::LexemString(Position position):position(position){
     
 }
