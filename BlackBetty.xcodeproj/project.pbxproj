@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E80CB0131D5DBF3000FFD217 /* BBLexemString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB0111D5DBF3000FFD217 /* BBLexemString.cpp */; };
+		E80CB0161D5DC86500FFD217 /* BBSyntacticResultObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB0141D5DC86500FFD217 /* BBSyntacticResultObject.cpp */; };
+		E80CB0191D5DC90E00FFD217 /* BBSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB0171D5DC90E00FFD217 /* BBSyntacticObject.cpp */; };
+		E80CB01D1D5DCA0200FFD217 /* BBLexemParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB01B1D5DCA0200FFD217 /* BBLexemParser.cpp */; };
+		E82307841D65AF31000AEA48 /* BBError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E82307821D65AF31000AEA48 /* BBError.cpp */; };
+		E82307891D65BC9F000AEA48 /* BBTextError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E82307871D65BC9F000AEA48 /* BBTextError.cpp */; };
+		E8E664D41D64B18D00446EF3 /* DelimiterSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D21D64B18D00446EF3 /* DelimiterSyntacticObject.cpp */; };
+		E8E664D71D64B21200446EF3 /* TokenAnalyzerCreater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D51D64B21200446EF3 /* TokenAnalyzerCreater.cpp */; };
+		E8E664DA1D64B34800446EF3 /* LexemSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D81D64B34800446EF3 /* LexemSyntacticObject.cpp */; };
+		E8E664DD1D64B37300446EF3 /* NotLexemSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664DB1D64B37300446EF3 /* NotLexemSyntacticObject.cpp */; };
+		E8E664E01D64B3B100446EF3 /* RangeSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664DE1D64B3B100446EF3 /* RangeSyntacticObject.cpp */; };
+		E8E664E61D64B3D900446EF3 /* ClinicalSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664E41D64B3D900446EF3 /* ClinicalSyntacticObject.cpp */; };
+		E8E664E91D64B3EC00446EF3 /* QuestionSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664E71D64B3EC00446EF3 /* QuestionSyntacticObject.cpp */; };
+		E8E664EC1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664EA1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp */; };
+		E8E664F21D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664F01D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp */; };
+		E8E855D81D5D84EE00ED360E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855D71D5D84EE00ED360E /* main.cpp */; };
+		E8E855E11D5D91F100ED360E /* BBTokensAnalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855DF1D5D91F100ED360E /* BBTokensAnalyzer.cpp */; };
+		E8E855E41D5D920100ED360E /* BBLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855E21D5D920100ED360E /* BBLexem.cpp */; };
+		E8E855E81D5D94E300ED360E /* BBSymbosLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855E61D5D94E300ED360E /* BBSymbosLexem.cpp */; };
+		E8E855EB1D5D973B00ED360E /* BBRangeLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855E91D5D973B00ED360E /* BBRangeLexem.cpp */; };
+		E8E855EE1D5D975200ED360E /* BBListLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855EC1D5D975200ED360E /* BBListLexem.cpp */; };
+		E8E855F11D5D977900ED360E /* BBNotLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855EF1D5D977900ED360E /* BBNotLexem.cpp */; };
+		E8E855F41D5D978E00ED360E /* BBSequenceLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855F21D5D978E00ED360E /* BBSequenceLexem.cpp */; };
+		E8E855F71D5D979F00ED360E /* BBIfLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855F51D5D979F00ED360E /* BBIfLexem.cpp */; };
+		E8E855FA1D5D97AC00ED360E /* BBConcatenationLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855F81D5D97AC00ED360E /* BBConcatenationLexem.cpp */; };
+		E8E855FE1D5DB50D00ED360E /* BBSyntacticAnalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855FC1D5DB50D00ED360E /* BBSyntacticAnalyzer.cpp */; };
+		E8F06B291D65FB9000677003 /* BBErrorPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8F06B271D65FB9000677003 /* BBErrorPool.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E8E855D21D5D84ED00ED360E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E80CB0111D5DBF3000FFD217 /* BBLexemString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBLexemString.cpp; sourceTree = "<group>"; };
+		E80CB0121D5DBF3000FFD217 /* BBLexemString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBLexemString.hpp; sourceTree = "<group>"; };
+		E80CB0141D5DC86500FFD217 /* BBSyntacticResultObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBSyntacticResultObject.cpp; sourceTree = "<group>"; };
+		E80CB0151D5DC86500FFD217 /* BBSyntacticResultObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBSyntacticResultObject.hpp; sourceTree = "<group>"; };
+		E80CB0171D5DC90E00FFD217 /* BBSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBSyntacticObject.cpp; sourceTree = "<group>"; };
+		E80CB0181D5DC90E00FFD217 /* BBSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBSyntacticObject.hpp; sourceTree = "<group>"; };
+		E80CB01B1D5DCA0200FFD217 /* BBLexemParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBLexemParser.cpp; sourceTree = "<group>"; };
+		E80CB01C1D5DCA0200FFD217 /* BBLexemParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBLexemParser.hpp; sourceTree = "<group>"; };
+		E82307821D65AF31000AEA48 /* BBError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBError.cpp; sourceTree = "<group>"; };
+		E82307831D65AF31000AEA48 /* BBError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBError.hpp; sourceTree = "<group>"; };
+		E82307861D65BC2D000AEA48 /* BBStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BBStruct.hpp; sourceTree = "<group>"; };
+		E82307871D65BC9F000AEA48 /* BBTextError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBTextError.cpp; sourceTree = "<group>"; };
+		E82307881D65BC9F000AEA48 /* BBTextError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBTextError.hpp; sourceTree = "<group>"; };
+		E8E664D01D64761100446EF3 /* BBAllLexems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAllLexems.h; sourceTree = "<group>"; };
+		E8E664D21D64B18D00446EF3 /* DelimiterSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelimiterSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664D31D64B18D00446EF3 /* DelimiterSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelimiterSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E664D51D64B21200446EF3 /* TokenAnalyzerCreater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TokenAnalyzerCreater.cpp; sourceTree = "<group>"; };
+		E8E664D61D64B21200446EF3 /* TokenAnalyzerCreater.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TokenAnalyzerCreater.hpp; sourceTree = "<group>"; };
+		E8E664D81D64B34800446EF3 /* LexemSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LexemSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664D91D64B34800446EF3 /* LexemSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LexemSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E664DB1D64B37300446EF3 /* NotLexemSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotLexemSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664DC1D64B37300446EF3 /* NotLexemSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NotLexemSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E664DE1D64B3B100446EF3 /* RangeSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RangeSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664DF1D64B3B100446EF3 /* RangeSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RangeSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E664E41D64B3D900446EF3 /* ClinicalSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClinicalSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664E51D64B3D900446EF3 /* ClinicalSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ClinicalSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E664E71D64B3EC00446EF3 /* QuestionSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuestionSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664E81D64B3EC00446EF3 /* QuestionSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QuestionSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E664EA1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConcatenationSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664EB1D64B40200446EF3 /* ConcatenationSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConcatenationSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E664EE1D64B4AC00446EF3 /* BBAllSyntacticObjectsForLexemParse.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBAllSyntacticObjectsForLexemParse.hpp; sourceTree = "<group>"; };
+		E8E664F01D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlusClinicalSyntacticObject.cpp; sourceTree = "<group>"; };
+		E8E664F11D64CB1400446EF3 /* PlusClinicalSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlusClinicalSyntacticObject.hpp; sourceTree = "<group>"; };
+		E8E855D41D5D84ED00ED360E /* BlackBetty */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BlackBetty; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8E855D71D5D84EE00ED360E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E8E855DF1D5D91F100ED360E /* BBTokensAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBTokensAnalyzer.cpp; sourceTree = "<group>"; };
+		E8E855E01D5D91F100ED360E /* BBTokensAnalyzer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBTokensAnalyzer.hpp; sourceTree = "<group>"; };
+		E8E855E21D5D920100ED360E /* BBLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBLexem.cpp; sourceTree = "<group>"; };
+		E8E855E31D5D920100ED360E /* BBLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBLexem.hpp; sourceTree = "<group>"; };
+		E8E855E61D5D94E300ED360E /* BBSymbosLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBSymbosLexem.cpp; sourceTree = "<group>"; };
+		E8E855E71D5D94E300ED360E /* BBSymbosLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBSymbosLexem.hpp; sourceTree = "<group>"; };
+		E8E855E91D5D973B00ED360E /* BBRangeLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBRangeLexem.cpp; sourceTree = "<group>"; };
+		E8E855EA1D5D973B00ED360E /* BBRangeLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBRangeLexem.hpp; sourceTree = "<group>"; };
+		E8E855EC1D5D975200ED360E /* BBListLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBListLexem.cpp; sourceTree = "<group>"; };
+		E8E855ED1D5D975200ED360E /* BBListLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBListLexem.hpp; sourceTree = "<group>"; };
+		E8E855EF1D5D977900ED360E /* BBNotLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBNotLexem.cpp; sourceTree = "<group>"; };
+		E8E855F01D5D977900ED360E /* BBNotLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBNotLexem.hpp; sourceTree = "<group>"; };
+		E8E855F21D5D978E00ED360E /* BBSequenceLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBSequenceLexem.cpp; sourceTree = "<group>"; };
+		E8E855F31D5D978E00ED360E /* BBSequenceLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBSequenceLexem.hpp; sourceTree = "<group>"; };
+		E8E855F51D5D979F00ED360E /* BBIfLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBIfLexem.cpp; sourceTree = "<group>"; };
+		E8E855F61D5D979F00ED360E /* BBIfLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBIfLexem.hpp; sourceTree = "<group>"; };
+		E8E855F81D5D97AC00ED360E /* BBConcatenationLexem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBConcatenationLexem.cpp; sourceTree = "<group>"; };
+		E8E855F91D5D97AC00ED360E /* BBConcatenationLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBConcatenationLexem.hpp; sourceTree = "<group>"; };
+		E8E855FC1D5DB50D00ED360E /* BBSyntacticAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBSyntacticAnalyzer.cpp; sourceTree = "<group>"; };
+		E8E855FD1D5DB50D00ED360E /* BBSyntacticAnalyzer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBSyntacticAnalyzer.hpp; sourceTree = "<group>"; };
+		E8F06B271D65FB9000677003 /* BBErrorPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBErrorPool.cpp; sourceTree = "<group>"; };
+		E8F06B281D65FB9000677003 /* BBErrorPool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBErrorPool.hpp; sourceTree = "<group>"; };
+		E8F06B2B1D65FD9000677003 /* BBPTRDefine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBPTRDefine.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E8E855D11D5D84ED00ED360E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E80CB01A1D5DC9C900FFD217 /* DTRLexemParser */ = {
+			isa = PBXGroup;
+			children = (
+				E8E664D11D64B17C00446EF3 /* SyntacticObjects */,
+				E80CB01C1D5DCA0200FFD217 /* BBLexemParser.hpp */,
+				E80CB01B1D5DCA0200FFD217 /* BBLexemParser.cpp */,
+				E8E664D61D64B21200446EF3 /* TokenAnalyzerCreater.hpp */,
+				E8E664D51D64B21200446EF3 /* TokenAnalyzerCreater.cpp */,
+			);
+			name = DTRLexemParser;
+			sourceTree = "<group>";
+		};
+		E82307811D65AED5000AEA48 /* Analyzers */ = {
+			isa = PBXGroup;
+			children = (
+				E8E855FB1D5DB44500ED360E /* DTRSyntacticAnalyzer */,
+				E8E855DE1D5D91C000ED360E /* DTRTokensAnalyzer */,
+			);
+			name = Analyzers;
+			sourceTree = "<group>";
+		};
+		E82307851D65AF38000AEA48 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E82307831D65AF31000AEA48 /* BBError.hpp */,
+				E82307821D65AF31000AEA48 /* BBError.cpp */,
+				E8F06B281D65FB9000677003 /* BBErrorPool.hpp */,
+				E8F06B271D65FB9000677003 /* BBErrorPool.cpp */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
+		E8E664D11D64B17C00446EF3 /* SyntacticObjects */ = {
+			isa = PBXGroup;
+			children = (
+				E8E664D31D64B18D00446EF3 /* DelimiterSyntacticObject.hpp */,
+				E8E664D21D64B18D00446EF3 /* DelimiterSyntacticObject.cpp */,
+				E8E664D91D64B34800446EF3 /* LexemSyntacticObject.hpp */,
+				E8E664D81D64B34800446EF3 /* LexemSyntacticObject.cpp */,
+				E8E664DC1D64B37300446EF3 /* NotLexemSyntacticObject.hpp */,
+				E8E664DB1D64B37300446EF3 /* NotLexemSyntacticObject.cpp */,
+				E8E664DF1D64B3B100446EF3 /* RangeSyntacticObject.hpp */,
+				E8E664DE1D64B3B100446EF3 /* RangeSyntacticObject.cpp */,
+				E8E664F11D64CB1400446EF3 /* PlusClinicalSyntacticObject.hpp */,
+				E8E664F01D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp */,
+				E8E664E51D64B3D900446EF3 /* ClinicalSyntacticObject.hpp */,
+				E8E664E41D64B3D900446EF3 /* ClinicalSyntacticObject.cpp */,
+				E8E664E81D64B3EC00446EF3 /* QuestionSyntacticObject.hpp */,
+				E8E664E71D64B3EC00446EF3 /* QuestionSyntacticObject.cpp */,
+				E8E664EB1D64B40200446EF3 /* ConcatenationSyntacticObject.hpp */,
+				E8E664EA1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp */,
+				E8E664EE1D64B4AC00446EF3 /* BBAllSyntacticObjectsForLexemParse.hpp */,
+			);
+			name = SyntacticObjects;
+			sourceTree = "<group>";
+		};
+		E8E855CB1D5D84ED00ED360E = {
+			isa = PBXGroup;
+			children = (
+				E8E855D61D5D84ED00ED360E /* BlackBetty */,
+				E8E855D51D5D84ED00ED360E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E8E855D51D5D84ED00ED360E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8E855D41D5D84ED00ED360E /* BlackBetty */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8E855D61D5D84ED00ED360E /* BlackBetty */ = {
+			isa = PBXGroup;
+			children = (
+				E82307851D65AF38000AEA48 /* Error */,
+				E80CB01A1D5DC9C900FFD217 /* DTRLexemParser */,
+				E82307811D65AED5000AEA48 /* Analyzers */,
+				E8E855D71D5D84EE00ED360E /* main.cpp */,
+				E82307861D65BC2D000AEA48 /* BBStruct.hpp */,
+				E8F06B2B1D65FD9000677003 /* BBPTRDefine.hpp */,
+			);
+			path = BlackBetty;
+			sourceTree = "<group>";
+		};
+		E8E855DE1D5D91C000ED360E /* DTRTokensAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				E8E855E51D5D948B00ED360E /* lexems */,
+				E8E855E01D5D91F100ED360E /* BBTokensAnalyzer.hpp */,
+				E8E855DF1D5D91F100ED360E /* BBTokensAnalyzer.cpp */,
+				E80CB0121D5DBF3000FFD217 /* BBLexemString.hpp */,
+				E80CB0111D5DBF3000FFD217 /* BBLexemString.cpp */,
+				E82307881D65BC9F000AEA48 /* BBTextError.hpp */,
+				E82307871D65BC9F000AEA48 /* BBTextError.cpp */,
+			);
+			name = DTRTokensAnalyzer;
+			sourceTree = "<group>";
+		};
+		E8E855E51D5D948B00ED360E /* lexems */ = {
+			isa = PBXGroup;
+			children = (
+				E8E855E31D5D920100ED360E /* BBLexem.hpp */,
+				E8E855E21D5D920100ED360E /* BBLexem.cpp */,
+				E8E855E71D5D94E300ED360E /* BBSymbosLexem.hpp */,
+				E8E855E61D5D94E300ED360E /* BBSymbosLexem.cpp */,
+				E8E855EA1D5D973B00ED360E /* BBRangeLexem.hpp */,
+				E8E855E91D5D973B00ED360E /* BBRangeLexem.cpp */,
+				E8E855ED1D5D975200ED360E /* BBListLexem.hpp */,
+				E8E855EC1D5D975200ED360E /* BBListLexem.cpp */,
+				E8E855F01D5D977900ED360E /* BBNotLexem.hpp */,
+				E8E855EF1D5D977900ED360E /* BBNotLexem.cpp */,
+				E8E855F31D5D978E00ED360E /* BBSequenceLexem.hpp */,
+				E8E855F21D5D978E00ED360E /* BBSequenceLexem.cpp */,
+				E8E855F61D5D979F00ED360E /* BBIfLexem.hpp */,
+				E8E855F51D5D979F00ED360E /* BBIfLexem.cpp */,
+				E8E855F91D5D97AC00ED360E /* BBConcatenationLexem.hpp */,
+				E8E855F81D5D97AC00ED360E /* BBConcatenationLexem.cpp */,
+				E8E664D01D64761100446EF3 /* BBAllLexems.h */,
+			);
+			name = lexems;
+			sourceTree = "<group>";
+		};
+		E8E855FB1D5DB44500ED360E /* DTRSyntacticAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				E8E855FD1D5DB50D00ED360E /* BBSyntacticAnalyzer.hpp */,
+				E8E855FC1D5DB50D00ED360E /* BBSyntacticAnalyzer.cpp */,
+				E80CB0151D5DC86500FFD217 /* BBSyntacticResultObject.hpp */,
+				E80CB0141D5DC86500FFD217 /* BBSyntacticResultObject.cpp */,
+				E80CB0181D5DC90E00FFD217 /* BBSyntacticObject.hpp */,
+				E80CB0171D5DC90E00FFD217 /* BBSyntacticObject.cpp */,
+			);
+			name = DTRSyntacticAnalyzer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E8E855D31D5D84ED00ED360E /* BlackBetty */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8E855DB1D5D84EE00ED360E /* Build configuration list for PBXNativeTarget "BlackBetty" */;
+			buildPhases = (
+				E8E855D01D5D84ED00ED360E /* Sources */,
+				E8E855D11D5D84ED00ED360E /* Frameworks */,
+				E8E855D21D5D84ED00ED360E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlackBetty;
+			productName = DTR;
+			productReference = E8E855D41D5D84ED00ED360E /* BlackBetty */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8E855CC1D5D84ED00ED360E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Alexander Shipin";
+				TargetAttributes = {
+					E8E855D31D5D84ED00ED360E = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = E8E855CF1D5D84ED00ED360E /* Build configuration list for PBXProject "BlackBetty" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E8E855CB1D5D84ED00ED360E;
+			productRefGroup = E8E855D51D5D84ED00ED360E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E8E855D31D5D84ED00ED360E /* BlackBetty */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E8E855D01D5D84ED00ED360E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8E855E11D5D91F100ED360E /* BBTokensAnalyzer.cpp in Sources */,
+				E8E855F11D5D977900ED360E /* BBNotLexem.cpp in Sources */,
+				E8E664E91D64B3EC00446EF3 /* QuestionSyntacticObject.cpp in Sources */,
+				E8E855F71D5D979F00ED360E /* BBIfLexem.cpp in Sources */,
+				E8E664E01D64B3B100446EF3 /* RangeSyntacticObject.cpp in Sources */,
+				E8E855FA1D5D97AC00ED360E /* BBConcatenationLexem.cpp in Sources */,
+				E80CB0161D5DC86500FFD217 /* BBSyntacticResultObject.cpp in Sources */,
+				E8E664E61D64B3D900446EF3 /* ClinicalSyntacticObject.cpp in Sources */,
+				E8E664DA1D64B34800446EF3 /* LexemSyntacticObject.cpp in Sources */,
+				E8E664D41D64B18D00446EF3 /* DelimiterSyntacticObject.cpp in Sources */,
+				E8E855E81D5D94E300ED360E /* BBSymbosLexem.cpp in Sources */,
+				E8E855F41D5D978E00ED360E /* BBSequenceLexem.cpp in Sources */,
+				E80CB0131D5DBF3000FFD217 /* BBLexemString.cpp in Sources */,
+				E8E855EE1D5D975200ED360E /* BBListLexem.cpp in Sources */,
+				E8E855D81D5D84EE00ED360E /* main.cpp in Sources */,
+				E82307891D65BC9F000AEA48 /* BBTextError.cpp in Sources */,
+				E8E664EC1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp in Sources */,
+				E8E855E41D5D920100ED360E /* BBLexem.cpp in Sources */,
+				E80CB01D1D5DCA0200FFD217 /* BBLexemParser.cpp in Sources */,
+				E82307841D65AF31000AEA48 /* BBError.cpp in Sources */,
+				E8E855EB1D5D973B00ED360E /* BBRangeLexem.cpp in Sources */,
+				E80CB0191D5DC90E00FFD217 /* BBSyntacticObject.cpp in Sources */,
+				E8E664F21D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp in Sources */,
+				E8E664D71D64B21200446EF3 /* TokenAnalyzerCreater.cpp in Sources */,
+				E8E664DD1D64B37300446EF3 /* NotLexemSyntacticObject.cpp in Sources */,
+				E8F06B291D65FB9000677003 /* BBErrorPool.cpp in Sources */,
+				E8E855FE1D5DB50D00ED360E /* BBSyntacticAnalyzer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E8E855D91D5D84EE00ED360E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E8E855DA1D5D84EE00ED360E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E8E855DC1D5D84EE00ED360E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = BlackBetty;
+			};
+			name = Debug;
+		};
+		E8E855DD1D5D84EE00ED360E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = BlackBetty;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E8E855CF1D5D84ED00ED360E /* Build configuration list for PBXProject "BlackBetty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8E855D91D5D84EE00ED360E /* Debug */,
+				E8E855DA1D5D84EE00ED360E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8E855DB1D5D84EE00ED360E /* Build configuration list for PBXNativeTarget "BlackBetty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8E855DC1D5D84EE00ED360E /* Debug */,
+				E8E855DD1D5D84EE00ED360E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E8E855CC1D5D84ED00ED360E /* Project object */;
+}
