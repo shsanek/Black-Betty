@@ -9,8 +9,9 @@
 #include "DTRTokensAnalyzer.hpp"
 
 
-DTRTokensAnalyzer::DTRTokensAnalyzer() {
+DTRTokensAnalyzer::DTRTokensAnalyzer(ErrorPool_ptr errorPool) {
     lexems = list<Lexem_ptr>();
+    this->errorPool = errorPool;
 }
 
 void DTRTokensAnalyzer::addLexemWithKey(Lexem_ptr lexem,string key) {
@@ -20,6 +21,8 @@ void DTRTokensAnalyzer::addLexemWithKey(Lexem_ptr lexem,string key) {
 
 list<LexemString> DTRTokensAnalyzer::lexemsFromSting(string str) {
     list<LexemString> resultList = list<LexemString>();
+    Position currentPosition = Position(0,0);
+    Position_ptr errorPosition = Position_ptr(NULL);
     do {
         Lexem::LexemSting resultString = 0;
         Lexem_ptr resultLexem;
@@ -36,16 +39,39 @@ list<LexemString> DTRTokensAnalyzer::lexemsFromSting(string str) {
             }
         }
         if (resultString) {
-            resultList.push_back(LexemString(resultString.resultString,resultLexem->lexemName));
+            resultList.push_back(LexemString(resultString.resultString,resultLexem->lexemName,currentPosition));
         }
         if (!resultString || resultString.length() == 0) {
-            break;
-        }
-        if (str.length() > resultString.length()) {
-            str = str.substr(resultString.length());
+            if (!errorPosition) {
+                errorPosition = Position_ptr(new Position(currentPosition));
+            }
         } else {
-            str = "";
+            if (errorPosition) {
+                this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(*errorPosition,1,"incorect lexem","LexemAnalyzerError")));
+            }
+            errorPosition = NULL;
         }
-    } while (true);
+        
+        
+        unsigned int length = resultString.length();
+        if (length == 0 && str.length() > 0) {
+            length = 1;
+        }
+        for (int i = 0; i < length; i++) {
+            char c = str[i];
+            if (c == '\n') {
+                currentPosition.x = 0;
+                currentPosition.y++;
+            } else {
+                currentPosition.x++;
+            }
+        }
+        str = str.substr(length);
+    } while (str.length() > 0);
+    
+    if (errorPosition) {
+        this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(*errorPosition,1,"incorect lexem","LexemAnalyzerError")));
+    }
+    
     return resultList;
 }

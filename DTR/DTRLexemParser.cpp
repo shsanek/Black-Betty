@@ -26,11 +26,11 @@ vector<LexemString> DTRLexemParser::preprocessor(list<LexemString> lexems){
 }
 
 
-DTRTokensAnalyzer_ptr DTRLexemParser::tokensAnalyzerFromStrin(string str) {
+DTRTokensAnalyzer_ptr DTRLexemParser::tokensAnalyzerFromStrin(string str,ErrorPool_ptr errorPool) {
     list<LexemString> lexems = this->lexAnalyzer.lexemsFromSting (str);
     vector<LexemString> preprocessorLexems = preprocessor (lexems);
     list<SyntacticResultObject_ptr> objects = this->syntacticAnalyzer.objectsFromLexems (preprocessorLexems);
-    DTRTokensAnalyzer_ptr analyzer = DTRTokensAnalyzer_ptr(new DTRTokensAnalyzer ());
+    DTRTokensAnalyzer_ptr analyzer = DTRTokensAnalyzer_ptr(new DTRTokensAnalyzer (errorPool));
     
     if (debugeMod) {
         string debugeText = "";
@@ -51,7 +51,7 @@ DTRTokensAnalyzer_ptr DTRLexemParser::tokensAnalyzerFromStrin(string str) {
     return analyzer;
 }
 
-DTRLexemParser::DTRLexemParser () {
+DTRLexemParser::DTRLexemParser(ErrorPool_ptr errorPool):errorPool(errorPool),lexAnalyzer(errorPool) {
     debugeMod = false;
     Lexem_ptr quoteLexem = Lexem_ptr((Lexem*) new SymbosLexem ("\'"));
     list<Lexem_ptr> stringLexemTmp1 = list<Lexem_ptr>();
@@ -64,7 +64,7 @@ DTRLexemParser::DTRLexemParser () {
     stringLexemTmp2.push_back(quoteLexem);
     
     Lexem_ptr stringLexem = Lexem_ptr((Lexem*)new ConcatenationLexem(stringLexemTmp2));
-    DTRTokensAnalyzer analyzer = DTRTokensAnalyzer ();
+    DTRTokensAnalyzer analyzer = DTRTokensAnalyzer (errorPool);
     analyzer.addLexemWithKey (stringLexem, "const_string");
     analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("[")), "open_square_bracket");
     analyzer.addLexemWithKey (Lexem_ptr(new SymbosLexem ("]")), "close_square_bracket");

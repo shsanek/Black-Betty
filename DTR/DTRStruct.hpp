@@ -9,9 +9,22 @@
 #ifndef DTRStruct_h
 #define DTRStruct_h
 
-struct Position{
-    unsigned int x;
-    unsigned int y;
+#include <stdio.h>
+#include "DTRPTRDefine.hpp"
+
+using namespace std;
+
+namespace DTR {
+    struct Position{
+        Position():x(0),y(0){}
+        Position(unsigned int x, unsigned int y):x(x),y(y){}
+        unsigned int x;
+        unsigned int y;
+    };
+    
+    PTRType(Position);
 };
+
+
 
 #endif /* DTRStruct_h */
