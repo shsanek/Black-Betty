@@ -22,7 +22,7 @@ using namespace std;
 /// DTR tokens analyzer.
 /// </summary>
 class DTRTokensAnalyzer{
-    list<shared_ptr<Lexem>> lexems;
+    list<PTRLexem> lexems;
 public:
     DTRTokensAnalyzer();
     void addLexemWithKey(shared_ptr<Lexem> lexem,string key);

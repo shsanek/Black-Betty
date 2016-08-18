@@ -11,6 +11,8 @@
 		E80CB0161D5DC86500FFD217 /* DTRSyntacticResultObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB0141D5DC86500FFD217 /* DTRSyntacticResultObject.cpp */; };
 		E80CB0191D5DC90E00FFD217 /* DTRSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB0171D5DC90E00FFD217 /* DTRSyntacticObject.cpp */; };
 		E80CB01D1D5DCA0200FFD217 /* DTRLexemParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB01B1D5DCA0200FFD217 /* DTRLexemParser.cpp */; };
+		E82307841D65AF31000AEA48 /* DTRError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E82307821D65AF31000AEA48 /* DTRError.cpp */; };
+		E82307891D65BC9F000AEA48 /* DTRTokensAnalyzerError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E82307871D65BC9F000AEA48 /* DTRTokensAnalyzerError.cpp */; };
 		E8E664D41D64B18D00446EF3 /* DelimiterSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D21D64B18D00446EF3 /* DelimiterSyntacticObject.cpp */; };
 		E8E664D71D64B21200446EF3 /* TokenAnalyzerCreater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D51D64B21200446EF3 /* TokenAnalyzerCreater.cpp */; };
 		E8E664DA1D64B34800446EF3 /* LexemSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D81D64B34800446EF3 /* LexemSyntacticObject.cpp */; };
@@ -31,6 +33,7 @@
 		E8E855F71D5D979F00ED360E /* DTRIfLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855F51D5D979F00ED360E /* DTRIfLexem.cpp */; };
 		E8E855FA1D5D97AC00ED360E /* DTRConcatenationLexem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855F81D5D97AC00ED360E /* DTRConcatenationLexem.cpp */; };
 		E8E855FE1D5DB50D00ED360E /* DTRSyntacticAnalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E855FC1D5DB50D00ED360E /* DTRSyntacticAnalyzer.cpp */; };
+		E8F06B291D65FB9000677003 /* DTRErrorPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8F06B271D65FB9000677003 /* DTRErrorPool.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +57,11 @@
 		E80CB0181D5DC90E00FFD217 /* DTRSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRSyntacticObject.hpp; sourceTree = "<group>"; };
 		E80CB01B1D5DCA0200FFD217 /* DTRLexemParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DTRLexemParser.cpp; sourceTree = "<group>"; };
 		E80CB01C1D5DCA0200FFD217 /* DTRLexemParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRLexemParser.hpp; sourceTree = "<group>"; };
+		E82307821D65AF31000AEA48 /* DTRError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DTRError.cpp; sourceTree = "<group>"; };
+		E82307831D65AF31000AEA48 /* DTRError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRError.hpp; sourceTree = "<group>"; };
+		E82307861D65BC2D000AEA48 /* DTRStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DTRStruct.hpp; sourceTree = "<group>"; };
+		E82307871D65BC9F000AEA48 /* DTRTokensAnalyzerError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DTRTokensAnalyzerError.cpp; sourceTree = "<group>"; };
+		E82307881D65BC9F000AEA48 /* DTRTokensAnalyzerError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRTokensAnalyzerError.hpp; sourceTree = "<group>"; };
 		E8E664D01D64761100446EF3 /* DTRAllLexems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTRAllLexems.h; sourceTree = "<group>"; };
 		E8E664D21D64B18D00446EF3 /* DelimiterSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelimiterSyntacticObject.cpp; sourceTree = "<group>"; };
 		E8E664D31D64B18D00446EF3 /* DelimiterSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelimiterSyntacticObject.hpp; sourceTree = "<group>"; };
@@ -96,6 +104,9 @@
 		E8E855F91D5D97AC00ED360E /* DTRConcatenationLexem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRConcatenationLexem.hpp; sourceTree = "<group>"; };
 		E8E855FC1D5DB50D00ED360E /* DTRSyntacticAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DTRSyntacticAnalyzer.cpp; sourceTree = "<group>"; };
 		E8E855FD1D5DB50D00ED360E /* DTRSyntacticAnalyzer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRSyntacticAnalyzer.hpp; sourceTree = "<group>"; };
+		E8F06B271D65FB9000677003 /* DTRErrorPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DTRErrorPool.cpp; sourceTree = "<group>"; };
+		E8F06B281D65FB9000677003 /* DTRErrorPool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRErrorPool.hpp; sourceTree = "<group>"; };
+		E8F06B2B1D65FD9000677003 /* DTRPTRDefine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DTRPTRDefine.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +130,26 @@
 				E8E664D51D64B21200446EF3 /* TokenAnalyzerCreater.cpp */,
 			);
 			name = DTRLexemParser;
+			sourceTree = "<group>";
+		};
+		E82307811D65AED5000AEA48 /* Analyzers */ = {
+			isa = PBXGroup;
+			children = (
+				E8E855FB1D5DB44500ED360E /* DTRSyntacticAnalyzer */,
+				E8E855DE1D5D91C000ED360E /* DTRTokensAnalyzer */,
+			);
+			name = Analyzers;
+			sourceTree = "<group>";
+		};
+		E82307851D65AF38000AEA48 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E82307831D65AF31000AEA48 /* DTRError.hpp */,
+				E82307821D65AF31000AEA48 /* DTRError.cpp */,
+				E8F06B281D65FB9000677003 /* DTRErrorPool.hpp */,
+				E8F06B271D65FB9000677003 /* DTRErrorPool.cpp */,
+			);
+			name = Error;
 			sourceTree = "<group>";
 		};
 		E8E664D11D64B17C00446EF3 /* SyntacticObjects */ = {
@@ -164,10 +195,12 @@
 		E8E855D61D5D84ED00ED360E /* DTR */ = {
 			isa = PBXGroup;
 			children = (
+				E82307851D65AF38000AEA48 /* Error */,
 				E80CB01A1D5DC9C900FFD217 /* DTRLexemParser */,
-				E8E855FB1D5DB44500ED360E /* DTRSyntacticObject */,
-				E8E855DE1D5D91C000ED360E /* DTRTokensAnalyzer */,
+				E82307811D65AED5000AEA48 /* Analyzers */,
 				E8E855D71D5D84EE00ED360E /* main.cpp */,
+				E82307861D65BC2D000AEA48 /* DTRStruct.hpp */,
+				E8F06B2B1D65FD9000677003 /* DTRPTRDefine.hpp */,
 			);
 			path = DTR;
 			sourceTree = "<group>";
@@ -180,6 +213,8 @@
 				E8E855DF1D5D91F100ED360E /* DTRTokensAnalyzer.cpp */,
 				E80CB0121D5DBF3000FFD217 /* DTRLexemString.hpp */,
 				E80CB0111D5DBF3000FFD217 /* DTRLexemString.cpp */,
+				E82307881D65BC9F000AEA48 /* DTRTokensAnalyzerError.hpp */,
+				E82307871D65BC9F000AEA48 /* DTRTokensAnalyzerError.cpp */,
 			);
 			name = DTRTokensAnalyzer;
 			sourceTree = "<group>";
@@ -208,7 +243,7 @@
 			name = lexems;
 			sourceTree = "<group>";
 		};
-		E8E855FB1D5DB44500ED360E /* DTRSyntacticObject */ = {
+		E8E855FB1D5DB44500ED360E /* DTRSyntacticAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
 				E8E855FD1D5DB50D00ED360E /* DTRSyntacticAnalyzer.hpp */,
@@ -218,7 +253,7 @@
 				E80CB0181D5DC90E00FFD217 /* DTRSyntacticObject.hpp */,
 				E80CB0171D5DC90E00FFD217 /* DTRSyntacticObject.cpp */,
 			);
-			name = DTRSyntacticObject;
+			name = DTRSyntacticAnalyzer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,14 +327,17 @@
 				E80CB0131D5DBF3000FFD217 /* DTRLexemString.cpp in Sources */,
 				E8E855EE1D5D975200ED360E /* DTRListLexem.cpp in Sources */,
 				E8E855D81D5D84EE00ED360E /* main.cpp in Sources */,
+				E82307891D65BC9F000AEA48 /* DTRTokensAnalyzerError.cpp in Sources */,
 				E8E664EC1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp in Sources */,
 				E8E855E41D5D920100ED360E /* DTRLexem.cpp in Sources */,
 				E80CB01D1D5DCA0200FFD217 /* DTRLexemParser.cpp in Sources */,
+				E82307841D65AF31000AEA48 /* DTRError.cpp in Sources */,
 				E8E855EB1D5D973B00ED360E /* DTRRangeLexem.cpp in Sources */,
 				E80CB0191D5DC90E00FFD217 /* DTRSyntacticObject.cpp in Sources */,
 				E8E664F21D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp in Sources */,
 				E8E664D71D64B21200446EF3 /* TokenAnalyzerCreater.cpp in Sources */,
 				E8E664DD1D64B37300446EF3 /* NotLexemSyntacticObject.cpp in Sources */,
+				E8F06B291D65FB9000677003 /* DTRErrorPool.cpp in Sources */,
 				E8E855FE1D5DB50D00ED360E /* DTRSyntacticAnalyzer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
