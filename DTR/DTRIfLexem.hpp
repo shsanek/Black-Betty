@@ -14,10 +14,10 @@
 
 namespace DTR {
 class IfLexem:public Lexem{
-    std::shared_ptr<Lexem> lexem;
-    std::shared_ptr<Lexem> resultLexem;
+    Lexem_ptr lexem;
+    Lexem_ptr resultLexem;
 public:
-    IfLexem(std::shared_ptr<Lexem> lexem,std::shared_ptr<Lexem> resultLexem);
+    IfLexem(Lexem_ptr lexem,Lexem_ptr resultLexem);
     virtual LexemSting stringLexemFromString(string str);
 };
 }

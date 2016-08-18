@@ -10,24 +10,24 @@
 
 using namespace DTR;
 
-TokenAnalyzerCreater::TokenAnalyzerCreater(shared_ptr<DTRTokensAnalyzer> analyzer) {
+TokenAnalyzerCreater::TokenAnalyzerCreater(DTRTokensAnalyzer_ptr analyzer) {
     tokenAnalyzer = analyzer;
 }
 
 TokenAnalyzerCreater::TokenAnalyzerCreater():SyntacticResultObjectData("TokenAnalyzerCreater"){
-    stack = list< list<shared_ptr<Lexem>>>();
+    stack = list< list<Lexem_ptr>>();
 }
 
-void TokenAnalyzerCreater::addedArguments(shared_ptr<Lexem> lexem) {
+void TokenAnalyzerCreater::addedArguments(Lexem_ptr lexem) {
     (stack.back()).push_back(lexem);
 }
 
 void TokenAnalyzerCreater::pushArgumentInStack() {
-    stack.push_back(list<shared_ptr<Lexem>>());
+    stack.push_back(list<Lexem_ptr>());
 }
 
-list<shared_ptr<Lexem>> TokenAnalyzerCreater::popArgumentsInStack(){
-    list<shared_ptr<Lexem>> result = stack.back();
+list<Lexem_ptr> TokenAnalyzerCreater::popArgumentsInStack(){
+    list<Lexem_ptr> result = stack.back();
     stack.pop_back();
     return result;
 }

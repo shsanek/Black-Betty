@@ -31,7 +31,7 @@ public:
     bool debugeMod;
     
     DTRLexemParser () ;
-    shared_ptr<DTRTokensAnalyzer> tokensAnalyzerFromStrin(string str) ;
+    DTRTokensAnalyzer_ptr tokensAnalyzerFromStrin(string str) ;
 };
 
 #endif /* DTRLexemParser_hpp */

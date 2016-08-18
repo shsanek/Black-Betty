@@ -13,6 +13,7 @@
 #include <list>
 #include "DTRLexem.hpp"
 #include "DTRLexemString.hpp"
+#include "DTRPTRDefine.hpp"
 
 using namespace DTR;
 using namespace std;
@@ -22,11 +23,13 @@ using namespace std;
 /// DTR tokens analyzer.
 /// </summary>
 class DTRTokensAnalyzer{
-    list<shared_ptr<Lexem>> lexems;
+    list<Lexem_ptr> lexems;
 public:
     DTRTokensAnalyzer();
-    void addLexemWithKey(shared_ptr<Lexem> lexem,string key);
+    void addLexemWithKey(Lexem_ptr lexem,string key);
     list<LexemString> lexemsFromSting(string str);
 };
+
+PTRType(DTRTokensAnalyzer);
 
 #endif /* DTRTokensAnalyzer_hpp */

@@ -14,9 +14,9 @@
 
 namespace DTR {
 class NotLexem:public Lexem{
-    std::shared_ptr<Lexem> lexem;
+    Lexem_ptr lexem;
 public:
-    NotLexem(std::shared_ptr<Lexem> lexem);
+    NotLexem(Lexem_ptr lexem);
     virtual LexemSting stringLexemFromString(string str);
 };
 }

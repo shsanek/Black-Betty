@@ -15,10 +15,10 @@
 
 namespace DTR {
 class ConcatenationLexem:public Lexem{
-    list<std::shared_ptr<Lexem>> lexems;
+    list<Lexem_ptr> lexems;
     
 public:
-    ConcatenationLexem(list<std::shared_ptr<Lexem>> lexems);
+    ConcatenationLexem(list<Lexem_ptr> lexems);
     virtual LexemSting stringLexemFromString(string str);
 };
 }

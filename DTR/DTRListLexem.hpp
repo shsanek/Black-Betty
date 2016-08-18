@@ -15,10 +15,10 @@
 
 namespace DTR {
     class ListLexem:public Lexem{
-        list<std::shared_ptr<Lexem>> lexems;
+        list<Lexem_ptr> lexems;
         
     public:
-        ListLexem(list<std::shared_ptr<Lexem>> lexems);
+        ListLexem(list<Lexem_ptr> lexems);
         virtual LexemSting stringLexemFromString(string str);
     };
 }

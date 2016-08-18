@@ -22,8 +22,8 @@ namespace DTR {
             CurrentSyntacticResultObject(LexemString lexem);
             
             CurrentSyntacticResultObject(string name,
-                                         list<shared_ptr<SyntacticResultObject>> subobjects,
-                                         list<shared_ptr<SyntacticResultObject>> headerObjects);
+                                         list<SyntacticResultObject_ptr> subobjects,
+                                         list<SyntacticResultObject_ptr> headerObjects);
             
             virtual void getData(SyntacticResultObjectData* inputData);
             
@@ -31,9 +31,9 @@ namespace DTR {
         
         DelimiterSyntacticObject(int priority);
         
-        virtual shared_ptr<SyntacticResultObject> resultObject(string name,
-                                                               list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                               list<shared_ptr<SyntacticResultObject>> headerObjects);
+        virtual SyntacticResultObject_ptr resultObject(string name,
+                                                               list<SyntacticResultObject_ptr> subobjects,
+                                                               list<SyntacticResultObject_ptr> headerObjects);
     };
 }
 

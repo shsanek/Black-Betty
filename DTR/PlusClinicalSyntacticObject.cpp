@@ -12,18 +12,18 @@ PlusSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject(
 }
 
 PlusSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject(string name,
-                                                                                list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                                                list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
+                                                                                list<SyntacticResultObject_ptr> subobjects,
+                                                                                list<SyntacticResultObject_ptr> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
 }
 
 void PlusSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResultObjectData* inputData) {
     TokenAnalyzerCreater* data = (TokenAnalyzerCreater*)inputData;
     data->pushArgumentInStack();
     this->getDataFromHeadObjects(data);
-    list<shared_ptr<Lexem>> lexems = data->popArgumentsInStack();
-    shared_ptr<Lexem> lexem = lexems.size()>1?shared_ptr<Lexem>(new ListLexem(lexems)):(*lexems.begin());
+    list<Lexem_ptr> lexems = data->popArgumentsInStack();
+    Lexem_ptr lexem = lexems.size()>1?Lexem_ptr(new ListLexem(lexems)):(*lexems.begin());
     if (lexems.size() > 0) {
-        lexem = shared_ptr<Lexem>(new SequenceLexem(lexem,1));
+        lexem = Lexem_ptr(new SequenceLexem(lexem,1));
     } else {
         //error
     }
@@ -33,8 +33,8 @@ void PlusSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResultO
 PlusSyntacticObject::PlusSyntacticObject(int priority):SyntacticObject("plus","plus",priority){
 }
 
-shared_ptr<SyntacticResultObject> PlusSyntacticObject::resultObject(string name,
-                                                                    list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                                    list<shared_ptr<SyntacticResultObject>> headerObjects){
-    return shared_ptr<SyntacticResultObject>((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
+SyntacticResultObject_ptr PlusSyntacticObject::resultObject(string name,
+                                                                    list<SyntacticResultObject_ptr> subobjects,
+                                                                    list<SyntacticResultObject_ptr> headerObjects){
+    return SyntacticResultObject_ptr((SyntacticResultObject*)new CurrentSyntacticResultObject (name, subobjects, headerObjects));
 }

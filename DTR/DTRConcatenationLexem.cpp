@@ -9,14 +9,14 @@
 #include "DTRConcatenationLexem.hpp"
 using namespace DTR;
 
-ConcatenationLexem::ConcatenationLexem(list<std::shared_ptr<Lexem>> lexems) {
+ConcatenationLexem::ConcatenationLexem(list<Lexem_ptr> lexems) {
     this->lexems = lexems;
 }
 
 Lexem::LexemSting ConcatenationLexem::stringLexemFromString(string str){
     LexemSting resultString = 0;
     resultString.found = true;
-    for (list<std::shared_ptr<Lexem>>::iterator lx = lexems.begin(); lx != lexems.end(); ++lx){
+    for (list<Lexem_ptr>::iterator lx = lexems.begin(); lx != lexems.end(); ++lx){
         LexemSting value = (*lx)->stringLexemFromString (str);
         if (!value) {
             return 0;

@@ -9,7 +9,7 @@
 #include "DTRNotLexem.hpp"
 using namespace DTR;
 
-NotLexem::NotLexem(std::shared_ptr<Lexem> lexem){
+NotLexem::NotLexem(Lexem_ptr lexem){
     this->lexem = lexem;
 }
 Lexem::LexemSting NotLexem::stringLexemFromString(string str){

@@ -13,23 +13,23 @@ QuestionSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObj
 }
 
 QuestionSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject(string name,
-                                                                                    list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                                                    list<shared_ptr<SyntacticResultObject>> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
+                                                                                    list<SyntacticResultObject_ptr> subobjects,
+                                                                                    list<SyntacticResultObject_ptr> headerObjects):SyntacticResultObject(name,subobjects,headerObjects) {
 }
 
 void QuestionSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResultObjectData* inputData) {
     TokenAnalyzerCreater* data = (TokenAnalyzerCreater*)inputData;
     data->pushArgumentInStack();
     this->getDataFromHeadObjects(data);
-    list<shared_ptr<Lexem>> alexems = data->popArgumentsInStack();
-    shared_ptr<Lexem> alexem = alexems.size()>1?shared_ptr<Lexem>(new ListLexem(alexems)):(*alexems.begin());
+    list<Lexem_ptr> alexems = data->popArgumentsInStack();
+    Lexem_ptr alexem = alexems.size()>1?Lexem_ptr(new ListLexem(alexems)):(*alexems.begin());
     
     data->pushArgumentInStack();
     this->getDataFromSubobjects(data);
-    list<shared_ptr<Lexem>> blexems = data->popArgumentsInStack();
-    shared_ptr<Lexem> blexem = blexems.size()>1?shared_ptr<Lexem>(new ListLexem(blexems)):(*blexems.begin());
+    list<Lexem_ptr> blexems = data->popArgumentsInStack();
+    Lexem_ptr blexem = blexems.size()>1?Lexem_ptr(new ListLexem(blexems)):(*blexems.begin());
     if (alexems.size() > 0 && blexems.size() > 0) {
-        data->addedArguments(shared_ptr<Lexem>(new IfLexem(alexem,blexem)));
+        data->addedArguments(Lexem_ptr(new IfLexem(alexem,blexem)));
     } else {
         //error
     }
@@ -39,8 +39,8 @@ void QuestionSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticRes
 QuestionSyntacticObject::QuestionSyntacticObject(int priority):SyntacticObject("question","question",priority,true){
 }
 
-shared_ptr<SyntacticResultObject> QuestionSyntacticObject::resultObject(string name,
-                                                                        list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                                        list<shared_ptr<SyntacticResultObject>> headerObjects){
-    return shared_ptr<SyntacticResultObject>(new CurrentSyntacticResultObject (name, subobjects, headerObjects));
+SyntacticResultObject_ptr QuestionSyntacticObject::resultObject(string name,
+                                                                        list<SyntacticResultObject_ptr> subobjects,
+                                                                        list<SyntacticResultObject_ptr> headerObjects){
+    return SyntacticResultObject_ptr(new CurrentSyntacticResultObject (name, subobjects, headerObjects));
 }

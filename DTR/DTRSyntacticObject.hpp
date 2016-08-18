@@ -11,9 +11,12 @@
 
 #include <stdio.h>
 #include "DTRSyntacticResultObject.hpp"
+#include "DTRPTRDefine.hpp"
 
 namespace DTR
 {
+    class SyntacticObject;
+    PTRType(SyntacticObject);
     class SyntacticObject{
     public:
         string key;
@@ -23,9 +26,9 @@ namespace DTR
         bool isOperator;
         SyntacticObject (string startSymbol, string endSymbol,int priority,bool isOperator = false);
         
-        virtual shared_ptr<SyntacticResultObject> resultObject(string name,
-                                                               list<shared_ptr<SyntacticResultObject>> subobjects,
-                                                               list<shared_ptr<SyntacticResultObject>> headerObjects);
+        virtual SyntacticResultObject_ptr resultObject(string name,
+                                                               list<SyntacticResultObject_ptr> subobjects,
+                                                               list<SyntacticResultObject_ptr> headerObjects);
     };
 }
 

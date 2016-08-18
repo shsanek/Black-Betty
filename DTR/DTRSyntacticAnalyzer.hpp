@@ -29,13 +29,13 @@ class DTRSyntacticAnalyzer{
     
     AnalyzerObject searchOfStrartObjectInLexems(vector<LexemString> lexems,
                                                 int indexSymbol,
-                                                shared_ptr<SyntacticObject> currentObject);
+                                                SyntacticObject_ptr currentObject);
     
-    list<shared_ptr<SyntacticObject>> syntacticObject;
+    list<SyntacticObject_ptr> syntacticObject;
 public:
-    void addSyntaxObject(shared_ptr<SyntacticObject> syntaxObject, string key);
+    void addSyntaxObject(SyntacticObject_ptr syntaxObject, string key);
     
-    list<shared_ptr<SyntacticResultObject>> objectsFromLexems(vector<LexemString> lexems);
+    list<SyntacticResultObject_ptr> objectsFromLexems(vector<LexemString> lexems);
     
     DTRSyntacticAnalyzer ();
 };

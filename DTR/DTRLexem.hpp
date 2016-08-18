@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "DTRPTRDefine.hpp"
 
 using namespace std;
 namespace DTR {
@@ -33,6 +34,7 @@ namespace DTR {
         string lexemName;
         virtual LexemSting stringLexemFromString(string str);
     };
+    PTRType(Lexem);
 };
 
 
