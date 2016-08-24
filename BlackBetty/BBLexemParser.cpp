@@ -24,8 +24,30 @@ vector<LexemString> BBLexemParser::preprocessor(list<LexemString> lexems){
     return resultString;
 }
 
+BBTokensAnalyzer_ptr BBLexemParser::tokensAnalyzerFromFileName(string fileName){
+    char buffer [100];
+    FILE * pFile = fopen (fileName.c_str() , "r");
+    
+    if (pFile == NULL) {
+        this->errorPool->addErrors(shared_ptr<Error>(new Error("file error",1,"file not found")));
+    }
+    else{
+        string result = "";
+        while ( ! feof (pFile) ){
+            if ( fgets (buffer , 100 , pFile) == NULL ) break;
+            fputs (buffer , stdout);
+            result += buffer;
+        }
+        fclose (pFile);
+        
+        return token
+    }
+    
+    return 0;
+    
+}
 
-BBTokensAnalyzer_ptr BBLexemParser::tokensAnalyzerFromStrin(string str,ErrorPool_ptr errorPool) {
+BBTokensAnalyzer_ptr BBLexemParser::tokensAnalyzerFromString(string str,ErrorPool_ptr errorPool) {
     list<LexemString> lexems = this->lexAnalyzer.lexemsFromSting (str);
     vector<LexemString> preprocessorLexems = preprocessor (lexems);
     list<SyntacticResultObject_ptr> objects = this->syntacticAnalyzer.objectsFromLexems (preprocessorLexems);

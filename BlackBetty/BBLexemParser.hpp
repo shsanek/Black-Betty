@@ -32,7 +32,8 @@ public:
     bool debugeMod;
     
     BBLexemParser (ErrorPool_ptr errorPool);
-    BBTokensAnalyzer_ptr tokensAnalyzerFromStrin(string str,ErrorPool_ptr errorPool) ;
+    BBTokensAnalyzer_ptr tokensAnalyzerFromFileName(string fileName);
+    BBTokensAnalyzer_ptr tokensAnalyzerFromString(string str,ErrorPool_ptr errorPool) ;
 };
 
 #endif /* BBLexemParser_hpp */

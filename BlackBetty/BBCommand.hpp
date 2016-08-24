@@ -16,53 +16,57 @@
 
 using namespace std;
 
+
 namespace BB{
     class ByteCodeInterpletator;
     class MemmoryController;
     
-    struct ExternalSymbols{
-        string symbol;
-        __uint8_t* positionInProgramm;
-        __uint8_t* point;
-    };
-    
     class Command{
-    public:
-        class Argument{
+        friend class ByteCommand;
+        class ArgumentInterface{
         public:
             enum ArgumentType{
-                ArgumentTypeTo,
-                ArgumentTypeFrom,
+                ArgumentTypeDefault,
+                ArgumentTypeConstantOffset,
                 ArgumentTypeConstant
             };
-            size_t size;
             ArgumentType type;
+            bool size;
         };
         
+        vector<ArgumentInterface> arguments;
+        shared_ptr<__uint32_t> fixConstantSizeSize;
+        bool getAutoConstantSize;
+    public:
+        class ByteCommand{
+            class Argument{
+            public:
+                __uint32_t index;
+                const __uint8_t* data;
+                const ArgumentInterface* interface;
+                __uint32_t size;
+            };
+            
+            shared_ptr<__uint32_t> fixConstantSizeSize;
+            Command* command;
+            __uint8_t* source;
+            DEFAULT_INT_TYPE programmOffset;
+            __uint32_t size;
+            
+            shared_ptr<Argument> nextArgument(shared_ptr<Argument> argument);
+            
+            void updateDataForArgument(shared_ptr<Argument> result) ;
+            
+            void updateSize();
+            
+        public:
+            ByteCommand(Command* command,__uint8_t* source,DEFAULT_INT_TYPE programmOffset);
+            size_t getSize();
+        };
         
         __uint32_t code;
         string name;
-        vector<Argument> arguents;
-        vector<__uint32_t> constantOffsetPossition;
         void (*implementation)(ByteCodeInterpletator*,MemmoryController*);
-        
-        size_t sizeFromCurrentConst(__uint8_t* source){
-            source = source + sizeof(__uint32_t);
-            return 0;
-        }
-        
-        shared_ptr<__uint8_t> linkExetrnalSymbols(__uint8_t** source,__uint32_t programmOffset){
-            __uint8_t* result = new __uint8_t[sizeFromCurrentConst(*source)];
-            memcpy(result, *source, sizeFromCurrentConst(*source));
-            shared_ptr<__uint8_t> constant = shared_ptr<__uint8_t>(result);
-            for (int i = 0; i < constantOffsetPossition.size(); i++) {
-                DEFAULT_INT_TYPE point = *((DEFAULT_INT_TYPE*)&result[constantOffsetPossition[i]]);
-                point += programmOffset;
-                memcpy(result + i, &point, sizeof(point));
-            }
-            return NULL;
-        }
-        
     };
 }
 

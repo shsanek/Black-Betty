@@ -8,6 +8,7 @@
 #include <iostream>
 #include "BBLexemParser.hpp"
 #include "BBMemmoryController.hpp"
+#include "BBFile.hpp"
 
 using namespace std;
 
@@ -16,7 +17,10 @@ int main(int argc, const char * argv[]) {
     BBLexemParser lexemParser = BBLexemParser(errorPool);
     
     ErrorPool_ptr errorPool2 = ErrorPool_ptr(new ErrorPool());
-    BBTokensAnalyzer_ptr analyzer = lexemParser.tokensAnalyzerFromStrin("'const_string' : (('\"')|(((!('\"')),('\\\"'))*)|('\"'));'spasing':(' ')+;'number':['1''9']+|['0''9']*|(('.')?(['0''9']+));",errorPool2);
+    
+    
+    
+    BBTokensAnalyzer_ptr analyzer = lexemParser.tokensAnalyzerFromString("'const_string' : (('\"')|(((!('\"')),('\\\"'))*)|('\"'));'spasing':(' ')+;'number':['1''9']+|['0''9']*|(('.')?(['0''9']+));",errorPool2);
     
     list<LexemString> testLexems = analyzer->lexemsFromSting("\"hello\"   \"hui\" 9878987 87877.98 98. 09988");
     
