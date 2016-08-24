@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "BBLexemParser.hpp"
+#include "BBMemmoryController.hpp"
 
 using namespace std;
 

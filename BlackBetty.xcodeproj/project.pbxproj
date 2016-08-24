@@ -11,8 +11,13 @@
 		E80CB0161D5DC86500FFD217 /* BBSyntacticResultObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB0141D5DC86500FFD217 /* BBSyntacticResultObject.cpp */; };
 		E80CB0191D5DC90E00FFD217 /* BBSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB0171D5DC90E00FFD217 /* BBSyntacticObject.cpp */; };
 		E80CB01D1D5DCA0200FFD217 /* BBLexemParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E80CB01B1D5DCA0200FFD217 /* BBLexemParser.cpp */; };
+		E813264D1D6C7E53002F3C3E /* ByteCodeInterpletator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E813264B1D6C7E53002F3C3E /* ByteCodeInterpletator.cpp */; };
+		E81326501D6C87E5002F3C3E /* BBByteCodeInterpletatorFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E813264E1D6C87E5002F3C3E /* BBByteCodeInterpletatorFactory.cpp */; };
+		E81326531D6C8FE0002F3C3E /* BBCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81326511D6C8FE0002F3C3E /* BBCommand.cpp */; };
+		E81326551D6C91A7002F3C3E /* BBMemmoryController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81326541D6C91A7002F3C3E /* BBMemmoryController.cpp */; };
 		E82307841D65AF31000AEA48 /* BBError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E82307821D65AF31000AEA48 /* BBError.cpp */; };
 		E82307891D65BC9F000AEA48 /* BBTextError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E82307871D65BC9F000AEA48 /* BBTextError.cpp */; };
+		E85279121D66DC2F00091E05 /* BBCommandMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E85279101D66DC2F00091E05 /* BBCommandMachine.cpp */; };
 		E8E664D41D64B18D00446EF3 /* DelimiterSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D21D64B18D00446EF3 /* DelimiterSyntacticObject.cpp */; };
 		E8E664D71D64B21200446EF3 /* TokenAnalyzerCreater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D51D64B21200446EF3 /* TokenAnalyzerCreater.cpp */; };
 		E8E664DA1D64B34800446EF3 /* LexemSyntacticObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8E664D81D64B34800446EF3 /* LexemSyntacticObject.cpp */; };
@@ -57,11 +62,23 @@
 		E80CB0181D5DC90E00FFD217 /* BBSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBSyntacticObject.hpp; sourceTree = "<group>"; };
 		E80CB01B1D5DCA0200FFD217 /* BBLexemParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBLexemParser.cpp; sourceTree = "<group>"; };
 		E80CB01C1D5DCA0200FFD217 /* BBLexemParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBLexemParser.hpp; sourceTree = "<group>"; };
+		E81326491D6C6D84002F3C3E /* BBStack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBStack.hpp; sourceTree = "<group>"; };
+		E813264B1D6C7E53002F3C3E /* ByteCodeInterpletator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteCodeInterpletator.cpp; sourceTree = "<group>"; };
+		E813264C1D6C7E53002F3C3E /* ByteCodeInterpletator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteCodeInterpletator.hpp; sourceTree = "<group>"; };
+		E813264E1D6C87E5002F3C3E /* BBByteCodeInterpletatorFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBByteCodeInterpletatorFactory.cpp; sourceTree = "<group>"; };
+		E813264F1D6C87E5002F3C3E /* BBByteCodeInterpletatorFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBByteCodeInterpletatorFactory.hpp; sourceTree = "<group>"; };
+		E81326511D6C8FE0002F3C3E /* BBCommand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBCommand.cpp; sourceTree = "<group>"; };
+		E81326521D6C8FE0002F3C3E /* BBCommand.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBCommand.hpp; sourceTree = "<group>"; };
+		E81326541D6C91A7002F3C3E /* BBMemmoryController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBMemmoryController.cpp; sourceTree = "<group>"; };
+		E81326561D6C9ABA002F3C3E /* BBMemmoryType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BBMemmoryType.hpp; sourceTree = "<group>"; };
 		E82307821D65AF31000AEA48 /* BBError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBError.cpp; sourceTree = "<group>"; };
 		E82307831D65AF31000AEA48 /* BBError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBError.hpp; sourceTree = "<group>"; };
 		E82307861D65BC2D000AEA48 /* BBStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BBStruct.hpp; sourceTree = "<group>"; };
 		E82307871D65BC9F000AEA48 /* BBTextError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBTextError.cpp; sourceTree = "<group>"; };
 		E82307881D65BC9F000AEA48 /* BBTextError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBTextError.hpp; sourceTree = "<group>"; };
+		E85279101D66DC2F00091E05 /* BBCommandMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BBCommandMachine.cpp; sourceTree = "<group>"; };
+		E85279111D66DC2F00091E05 /* BBCommandMachine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBCommandMachine.hpp; sourceTree = "<group>"; };
+		E85279141D66DFD900091E05 /* BBMemmoryController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BBMemmoryController.hpp; sourceTree = "<group>"; };
 		E8E664D01D64761100446EF3 /* BBAllLexems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAllLexems.h; sourceTree = "<group>"; };
 		E8E664D21D64B18D00446EF3 /* DelimiterSyntacticObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelimiterSyntacticObject.cpp; sourceTree = "<group>"; };
 		E8E664D31D64B18D00446EF3 /* DelimiterSyntacticObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelimiterSyntacticObject.hpp; sourceTree = "<group>"; };
@@ -120,7 +137,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E80CB01A1D5DC9C900FFD217 /* DTRLexemParser */ = {
+		E80CB01A1D5DC9C900FFD217 /* LexemParser */ = {
 			isa = PBXGroup;
 			children = (
 				E8E664D11D64B17C00446EF3 /* SyntacticObjects */,
@@ -129,14 +146,14 @@
 				E8E664D61D64B21200446EF3 /* TokenAnalyzerCreater.hpp */,
 				E8E664D51D64B21200446EF3 /* TokenAnalyzerCreater.cpp */,
 			);
-			name = DTRLexemParser;
+			name = LexemParser;
 			sourceTree = "<group>";
 		};
 		E82307811D65AED5000AEA48 /* Analyzers */ = {
 			isa = PBXGroup;
 			children = (
-				E8E855FB1D5DB44500ED360E /* DTRSyntacticAnalyzer */,
-				E8E855DE1D5D91C000ED360E /* DTRTokensAnalyzer */,
+				E8E855FB1D5DB44500ED360E /* SyntacticAnalyzer */,
+				E8E855DE1D5D91C000ED360E /* TokensAnalyzer */,
 			);
 			name = Analyzers;
 			sourceTree = "<group>";
@@ -150,6 +167,25 @@
 				E8F06B271D65FB9000677003 /* BBErrorPool.cpp */,
 			);
 			name = Error;
+			sourceTree = "<group>";
+		};
+		E852790F1D66DBE000091E05 /* CommandMachine */ = {
+			isa = PBXGroup;
+			children = (
+				E81326521D6C8FE0002F3C3E /* BBCommand.hpp */,
+				E81326511D6C8FE0002F3C3E /* BBCommand.cpp */,
+				E85279111D66DC2F00091E05 /* BBCommandMachine.hpp */,
+				E85279101D66DC2F00091E05 /* BBCommandMachine.cpp */,
+				E813264F1D6C87E5002F3C3E /* BBByteCodeInterpletatorFactory.hpp */,
+				E813264E1D6C87E5002F3C3E /* BBByteCodeInterpletatorFactory.cpp */,
+				E813264C1D6C7E53002F3C3E /* ByteCodeInterpletator.hpp */,
+				E813264B1D6C7E53002F3C3E /* ByteCodeInterpletator.cpp */,
+				E85279141D66DFD900091E05 /* BBMemmoryController.hpp */,
+				E81326541D6C91A7002F3C3E /* BBMemmoryController.cpp */,
+				E81326561D6C9ABA002F3C3E /* BBMemmoryType.hpp */,
+				E81326491D6C6D84002F3C3E /* BBStack.hpp */,
+			);
+			name = CommandMachine;
 			sourceTree = "<group>";
 		};
 		E8E664D11D64B17C00446EF3 /* SyntacticObjects */ = {
@@ -195,8 +231,9 @@
 		E8E855D61D5D84ED00ED360E /* BlackBetty */ = {
 			isa = PBXGroup;
 			children = (
+				E852790F1D66DBE000091E05 /* CommandMachine */,
 				E82307851D65AF38000AEA48 /* Error */,
-				E80CB01A1D5DC9C900FFD217 /* DTRLexemParser */,
+				E80CB01A1D5DC9C900FFD217 /* LexemParser */,
 				E82307811D65AED5000AEA48 /* Analyzers */,
 				E8E855D71D5D84EE00ED360E /* main.cpp */,
 				E82307861D65BC2D000AEA48 /* BBStruct.hpp */,
@@ -205,7 +242,7 @@
 			path = BlackBetty;
 			sourceTree = "<group>";
 		};
-		E8E855DE1D5D91C000ED360E /* DTRTokensAnalyzer */ = {
+		E8E855DE1D5D91C000ED360E /* TokensAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
 				E8E855E51D5D948B00ED360E /* lexems */,
@@ -216,7 +253,7 @@
 				E82307881D65BC9F000AEA48 /* BBTextError.hpp */,
 				E82307871D65BC9F000AEA48 /* BBTextError.cpp */,
 			);
-			name = DTRTokensAnalyzer;
+			name = TokensAnalyzer;
 			sourceTree = "<group>";
 		};
 		E8E855E51D5D948B00ED360E /* lexems */ = {
@@ -243,7 +280,7 @@
 			name = lexems;
 			sourceTree = "<group>";
 		};
-		E8E855FB1D5DB44500ED360E /* DTRSyntacticAnalyzer */ = {
+		E8E855FB1D5DB44500ED360E /* SyntacticAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
 				E8E855FD1D5DB50D00ED360E /* BBSyntacticAnalyzer.hpp */,
@@ -253,7 +290,7 @@
 				E80CB0181D5DC90E00FFD217 /* BBSyntacticObject.hpp */,
 				E80CB0171D5DC90E00FFD217 /* BBSyntacticObject.cpp */,
 			);
-			name = DTRSyntacticAnalyzer;
+			name = SyntacticAnalyzer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,9 +349,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81326531D6C8FE0002F3C3E /* BBCommand.cpp in Sources */,
 				E8E855E11D5D91F100ED360E /* BBTokensAnalyzer.cpp in Sources */,
 				E8E855F11D5D977900ED360E /* BBNotLexem.cpp in Sources */,
 				E8E664E91D64B3EC00446EF3 /* QuestionSyntacticObject.cpp in Sources */,
+				E81326501D6C87E5002F3C3E /* BBByteCodeInterpletatorFactory.cpp in Sources */,
+				E813264D1D6C7E53002F3C3E /* ByteCodeInterpletator.cpp in Sources */,
 				E8E855F71D5D979F00ED360E /* BBIfLexem.cpp in Sources */,
 				E8E664E01D64B3B100446EF3 /* RangeSyntacticObject.cpp in Sources */,
 				E8E855FA1D5D97AC00ED360E /* BBConcatenationLexem.cpp in Sources */,
@@ -331,12 +371,14 @@
 				E8E664EC1D64B40200446EF3 /* ConcatenationSyntacticObject.cpp in Sources */,
 				E8E855E41D5D920100ED360E /* BBLexem.cpp in Sources */,
 				E80CB01D1D5DCA0200FFD217 /* BBLexemParser.cpp in Sources */,
+				E81326551D6C91A7002F3C3E /* BBMemmoryController.cpp in Sources */,
 				E82307841D65AF31000AEA48 /* BBError.cpp in Sources */,
 				E8E855EB1D5D973B00ED360E /* BBRangeLexem.cpp in Sources */,
 				E80CB0191D5DC90E00FFD217 /* BBSyntacticObject.cpp in Sources */,
 				E8E664F21D64CB1400446EF3 /* PlusClinicalSyntacticObject.cpp in Sources */,
 				E8E664D71D64B21200446EF3 /* TokenAnalyzerCreater.cpp in Sources */,
 				E8E664DD1D64B37300446EF3 /* NotLexemSyntacticObject.cpp in Sources */,
+				E85279121D66DC2F00091E05 /* BBCommandMachine.cpp in Sources */,
 				E8F06B291D65FB9000677003 /* BBErrorPool.cpp in Sources */,
 				E8E855FE1D5DB50D00ED360E /* BBSyntacticAnalyzer.cpp in Sources */,
 			);
