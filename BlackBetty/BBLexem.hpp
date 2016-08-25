@@ -14,6 +14,9 @@
 
 using namespace std;
 namespace BB {
+    class Lexem;
+    PTRType(Lexem);
+    
     class Lexem{
     public:
         class LexemSting{
@@ -32,8 +35,9 @@ namespace BB {
         
         string lexemName;
         virtual LexemSting stringLexemFromString(string str);
+        virtual Lexem_ptr copy();
     };
-    PTRType(Lexem);
+    
 };
 
 

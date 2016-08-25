@@ -26,8 +26,8 @@ namespace BB
         SyntacticObject (string startSymbol, string endSymbol,int priority,bool isOperator = false);
         
         virtual SyntacticResultObject_ptr resultObject(string name,
-                                                               list<SyntacticResultObject_ptr> subobjects,
-                                                               list<SyntacticResultObject_ptr> headerObjects);
+                                                       list<SyntacticResultObject_ptr> subobjects,
+                                                       list<SyntacticResultObject_ptr> headerObjects);
     };
 }
 

@@ -34,6 +34,8 @@ void RangeSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResult
         }
     } else {
         //error
+        
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "RangeSyntacticObject" )));
     }
 }
 

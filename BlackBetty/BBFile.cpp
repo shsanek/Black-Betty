@@ -10,7 +10,8 @@
 
 using namespace BB;
 
-string getStingFromFileWithName(string fileName,ErrorPool_ptr errorPool){
+
+string BB::getStingFromFileWithName(string fileName,ErrorPool_ptr errorPool){
     char buffer [100];
     FILE * pFile = fopen (fileName.c_str() , "r");
     if (pFile == NULL) {
@@ -20,7 +21,7 @@ string getStingFromFileWithName(string fileName,ErrorPool_ptr errorPool){
         string result = "";
         while ( ! feof (pFile) ){
             if ( fgets (buffer , 100 , pFile) == NULL ) break;
-            fputs (buffer , stdout);
+            //fputs (buffer , stdout);
             result += buffer;
         }
         fclose (pFile);

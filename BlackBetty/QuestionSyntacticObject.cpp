@@ -31,6 +31,8 @@ void QuestionSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticRes
         data->addedArguments(Lexem_ptr(new IfLexem(alexem,blexem)));
     } else {
         //error
+        
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "QuestionSyntacticObject" )));
     }
 }
 

@@ -43,3 +43,7 @@ Lexem::LexemSting::operator bool(){
 unsigned int Lexem::LexemSting::length() {
     return (unsigned int)resultString.length();
 }
+
+Lexem_ptr Lexem::copy() {
+    return Lexem_ptr(this);
+}

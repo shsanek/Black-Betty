@@ -6,7 +6,9 @@
 //
 
 #include "DelimiterSyntacticObject.hpp"
+#include "BBTextError.hpp"
 
+using namespace BB;
 
 DelimiterSyntacticObject::CurrentSyntacticResultObject::CurrentSyntacticResultObject(LexemString lexem):SyntacticResultObject(lexem) {
 }
@@ -23,12 +25,14 @@ void DelimiterSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticRe
     list<Lexem_ptr> lexems = data->popArgumentsInStack();
     Lexem_ptr lexem = lexems.size()>1?Lexem_ptr(new ListLexem(lexems)):(*lexems.begin());
     
-    if (this->headerObjects.size() == 1 &&
+    if (lexem &&
+        this->headerObjects.size() == 1 &&
         (*this->headerObjects.begin())->name == "" &&
         (*this->headerObjects.begin())->lexem.lexemName == "const_string") {
         data->tokenAnalyzer->addLexemWithKey(lexem, (*this->headerObjects.begin())->lexem.value);
     } else {
         //error
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "DelimiterSyntacticObjectError" )));
     }
 }
 

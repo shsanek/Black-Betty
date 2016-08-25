@@ -25,8 +25,9 @@ using namespace std;
 /// </summary>
 class BBTokensAnalyzer{
     list<Lexem_ptr> lexems;
-    ErrorPool_ptr errorPool;
 public:
+    ErrorPool_ptr errorPool;
+    Lexem_ptr lexemWithKey(string key);
     BBTokensAnalyzer(ErrorPool_ptr errorPool);
     void addLexemWithKey(Lexem_ptr lexem,string key);
     list<LexemString> lexemsFromSting(string str);

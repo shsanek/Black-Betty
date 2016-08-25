@@ -26,6 +26,8 @@ void ClinicalSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticRes
         lexem = Lexem_ptr(new SequenceLexem(lexem,0));
     } else {
         //error
+        
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "ClinicalSyntacticObject" )));
     }
     data->addedArguments(lexem);
 }

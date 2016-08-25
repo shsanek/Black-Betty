@@ -17,14 +17,16 @@ namespace BB {
     class TokenAnalyzerCreater:public SyntacticResultObjectData{
         list< list<Lexem_ptr>> stack;
     public:
+        ErrorPool_ptr errorPool;
+        
         BBTokensAnalyzer_ptr tokenAnalyzer;
         
         TokenAnalyzerCreater(BBTokensAnalyzer_ptr analyzer) ;
         TokenAnalyzerCreater();
         
-        void addedArguments(Lexem_ptr lexem) ;
-        void pushArgumentInStack() ;
-        list<Lexem_ptr> popArgumentsInStack();
+        bool addedArguments(Lexem_ptr lexem,LexemString* forLexemSting = NULL,SyntacticResultObject* forObject = NULL) ;
+        bool pushArgumentInStack(LexemString* forLexemSting = NULL,SyntacticResultObject* forObject = NULL) ;
+        list<Lexem_ptr> popArgumentsInStack(LexemString* forLexemSting = NULL,SyntacticResultObject* forObject = NULL);
     };
 }
 

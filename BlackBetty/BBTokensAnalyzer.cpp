@@ -18,10 +18,20 @@ void BBTokensAnalyzer::addLexemWithKey(Lexem_ptr lexem,string key) {
     this->lexems.push_back(lexem);
 }
 
+Lexem_ptr BBTokensAnalyzer::lexemWithKey(string key){
+    for (list<Lexem_ptr>::iterator lx = lexems.begin(); lx != lexems.end(); ++lx){
+        if ((*lx)->lexemName == key) {
+            return *lx;
+        }
+    }
+    return nullptr;
+}
+
 list<LexemString> BBTokensAnalyzer::lexemsFromSting(string str) {
     list<LexemString> resultList = list<LexemString>();
     Position currentPosition = Position(0,0);
     Position_ptr errorPosition = Position_ptr(NULL);
+    string errorString = "";
     do {
         Lexem::LexemSting resultString = 0;
         Lexem_ptr resultLexem;
@@ -31,7 +41,7 @@ list<LexemString> BBTokensAnalyzer::lexemsFromSting(string str) {
                 if (!resultString) {
                     resultString = value;
                     resultLexem = *lx;
-                } else if (resultString.length() < value.length()) {
+                } else if (resultString.length() <= value.length()) {
                     resultString = value;
                     resultLexem = *lx;
                 }
@@ -42,11 +52,12 @@ list<LexemString> BBTokensAnalyzer::lexemsFromSting(string str) {
         }
         if (!resultString || resultString.length() == 0) {
             if (!errorPosition) {
+                errorString = "";
                 errorPosition = Position_ptr(new Position(currentPosition));
             }
         } else {
             if (errorPosition) {
-                this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(*errorPosition,1,"incorect lexem","LexemAnalyzerError")));
+                this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(*errorPosition,1,"incorect lexem '" + errorString + "'","LexemAnalyzerError")));
             }
             errorPosition = NULL;
         }
@@ -54,6 +65,7 @@ list<LexemString> BBTokensAnalyzer::lexemsFromSting(string str) {
         
         unsigned int length = resultString.length();
         if (length == 0 && str.length() > 0) {
+            errorString += str[0];
             length = 1;
         }
         for (int i = 0; i < length; i++) {

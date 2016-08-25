@@ -12,7 +12,7 @@ using namespace BB;
 TextAnalyzerError::TextAnalyzerError(Position position,unsigned int code,string text,string name):Error(name,code,text),position(position){
     string realText = name;
     realText += " (in row: ";
-    realText += to_string(position.y);
+    realText += to_string(position.y + 1);
     realText += " colum: ";
     realText += to_string(position.x);
     realText += ") information: < text: '" + text + "' code: ";

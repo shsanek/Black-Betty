@@ -6,6 +6,7 @@
 //
 
 #include "BBSyntacticAnalyzer.hpp"
+#include "BBTextError.hpp"
 
 
 BBSyntacticAnalyzer::AnalyzerObject::AnalyzerObject(list<LexemString> headerLexems,
@@ -27,8 +28,8 @@ BBSyntacticAnalyzer::AnalyzerObject::AnalyzerObject(list<LexemString> headerLexe
 }
 
 BBSyntacticAnalyzer::AnalyzerObject BBSyntacticAnalyzer::searchOfStrartObjectInLexems(vector<LexemString> lexems,
-                                                                                        int indexSymbol,
-                                                                                        SyntacticObject_ptr currentObject){
+                                                                                      int indexSymbol,
+                                                                                      SyntacticObject_ptr currentObject){
     int startSymbol = indexSymbol;
     list<LexemString> bodyLexems = list<LexemString>();
     int stack = 0;
@@ -51,6 +52,17 @@ BBSyntacticAnalyzer::AnalyzerObject BBSyntacticAnalyzer::searchOfStrartObjectInL
             }
         }
         
+    }
+    
+    if (stack != 0) {
+        this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(lexems[startSymbol].position,
+                                                                   2,
+                                                                        "start body symbol for lexem '" +
+                                                                        lexems[startSymbol].value +
+                                                                        "' and syntactic object '" +
+                                                                        currentObject->key +
+                                                                        "' not found",
+                                                                   "SyntacticAnalyzerError")));
     }
     
     list<LexemString> headerLexems = list<LexemString>();
@@ -79,6 +91,18 @@ BBSyntacticAnalyzer::AnalyzerObject BBSyntacticAnalyzer::searchOfStrartObjectInL
         indexSymbol--;
         headerLexems.push_front(lex);
     }
+    
+    if (stack != 0) {
+        this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(lexems[startSymbol].position,
+                                                                   2,
+                                                                   "start head symbol for lexem '" +
+                                                                   lexems[startSymbol].value +
+                                                                   "' and syntactic object '" +
+                                                                   currentObject->key +
+                                                                   "' not found",
+                                                                   "SyntacticAnalyzerError")));
+    }
+    
     return AnalyzerObject (headerLexems, bodyLexems, startSymbol - indexSymbol);
 }
 
@@ -94,10 +118,6 @@ list<SyntacticResultObject_ptr> BBSyntacticAnalyzer::objectsFromLexems(vector<Le
         return list<SyntacticResultObject_ptr>();
     }
     list<SyntacticResultObject_ptr> result = list<SyntacticResultObject_ptr>();
-//    if (lexems.size() == 1) {
-//        result.push_front(SyntacticResultObject_ptr(new SyntacticResultObject (lexems [0])));
-//        return result;
-//    }
     int indexSymbol = (int)lexems.size() - 1;
     while (indexSymbol >= 0) {
         LexemString lex = lexems [indexSymbol];
@@ -108,14 +128,20 @@ list<SyntacticResultObject_ptr> BBSyntacticAnalyzer::objectsFromLexems(vector<Le
              ++i) {
             if ((*i)->endSymbol == lex.lexemName) {
                 AnalyzerObject analyzerObject = searchOfStrartObjectInLexems(lexems,indexSymbol,(*i));
+                
                 SyntacticResultObject_ptr resultObject = (*i)->resultObject ((*i)->key,
-                                                                                     objectsFromLexems (analyzerObject.lexems),
-                                                                                     objectsFromLexems (analyzerObject.headerLexems));
+                                                                             objectsFromLexems (analyzerObject.lexems),
+                                                                             objectsFromLexems (analyzerObject.headerLexems));
+                resultObject->lexem = lex;
+                
                 if ((*i)->isOperator && result.size() > 0) {
                     resultObject->subobjects.push_back((*(result.begin())));
                     result.erase(result.begin());
                 } else if ((*i)->isOperator) {
-                    //error
+                    this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(lex.position,
+                                                                               2,
+                                                                               "argument for operator '" + lex.value + "' not found",
+                                                                               "SyntacticAnalyzerError")));
                 }
                 result.push_front(resultObject);
                 indexSymbol = indexSymbol - analyzerObject.numberOfLexems;
@@ -131,6 +157,7 @@ list<SyntacticResultObject_ptr> BBSyntacticAnalyzer::objectsFromLexems(vector<Le
     return result;
 }
 
-BBSyntacticAnalyzer::BBSyntacticAnalyzer (){
+BBSyntacticAnalyzer::BBSyntacticAnalyzer (ErrorPool_ptr errorPool){
     this->syntacticObject = list<SyntacticObject_ptr> ();
+    this->errorPool = errorPool;
 }

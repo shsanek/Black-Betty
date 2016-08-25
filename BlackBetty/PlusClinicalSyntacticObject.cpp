@@ -25,6 +25,8 @@ void PlusSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResultO
         lexem = Lexem_ptr(new SequenceLexem(lexem,1));
     } else {
         //error
+        
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "PlusSyntacticObject" )));
     }
     data->addedArguments(lexem);
 }

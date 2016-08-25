@@ -87,8 +87,9 @@ SyntacticResultObject::SyntacticResultObject(LexemString lexem){
 }
 
 SyntacticResultObject::SyntacticResultObject(string name,
-                      list<SyntacticResultObject_ptr> subobjects,
-                      list<SyntacticResultObject_ptr> headerObjects) {
+                                             list<SyntacticResultObject_ptr> subobjects,
+                                             list<SyntacticResultObject_ptr> headerObjects) {
+    this->lexem = lexem;
     this->name = name;
     this->subobjects = subobjects;
     this->headerObjects = headerObjects;

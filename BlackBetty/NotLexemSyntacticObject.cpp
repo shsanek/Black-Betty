@@ -25,6 +25,8 @@ void NotLexemSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticRes
         data->addedArguments(Lexem_ptr(new NotLexem(lexem)));
     } else {
         //error
+        
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "NotLexemSyntacticObject" )));
     }
 }
 

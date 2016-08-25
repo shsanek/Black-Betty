@@ -28,7 +28,7 @@ void LexemSyntacticObject::CurrentSyntacticResultObject::getData(SyntacticResult
             lexem = Lexem_ptr(new SymbosLexem((*this->subobjects.begin())->lexem.value));
         }
     } else if (this->headerObjects.size() == 0) {
-        //error
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "LexemSyntacticObject" )));
     }
     data->addedArguments(lexem);
 }

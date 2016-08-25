@@ -1,7 +1,8 @@
 //
 //  BBLexemParser.hpp
 //  BlackBetty
-//  Created by Alexander Shipin on 12/08/16.
+//
+//  Created by Alexander Shipin on 25/08/16.
 //  Copyright © 2016 Alexander Shipin. All rights reserved.
 //
 
@@ -9,31 +10,17 @@
 #define BBLexemParser_hpp
 
 #include <stdio.h>
-#include "BBSyntacticAnalyzer.hpp"
-#include "BBTokensAnalyzer.hpp"
-#include "BBAllLexems.h"
-#include <list>
-#include "BBAllSyntacticObjectsForLexemParse.hpp"
-#include "BBTextError.hpp"
+#include <stdlib.h>
+#include "BBCoreLexemParser.hpp"
+#include "BBConstantStingAnalyzer.hpp"
 
-using namespace std;
-using namespace BB;
 
-/// <summary>
-/// BB lexem parser.
-/// </summary>
-class BBLexemParser{
-    BBTokensAnalyzer lexAnalyzer;
-    BBSyntacticAnalyzer syntacticAnalyzer;
-    
-    vector<LexemString> preprocessor(list<LexemString> lexems);
-    ErrorPool_ptr errorPool;
+class BBLexemParser:public BBCoreLexemParser{
+protected:
+    ConstantStingAnalyzer_ptr constantStringAnalyzer;
+    virtual vector<LexemString> preprocessor(list<LexemString> lexems);
 public:
-    bool debugeMod;
-    
     BBLexemParser (ErrorPool_ptr errorPool);
-    BBTokensAnalyzer_ptr tokensAnalyzerFromFileName(string fileName);
-    BBTokensAnalyzer_ptr tokensAnalyzerFromString(string str,ErrorPool_ptr errorPool) ;
 };
 
 #endif /* BBLexemParser_hpp */

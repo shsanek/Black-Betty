@@ -11,21 +11,29 @@
 #include "BBFile.hpp"
 
 using namespace std;
+using namespace BB;
 
 int main(int argc, const char * argv[]) {
     ErrorPool_ptr errorPool = ErrorPool_ptr(new ErrorPool());
-    BBLexemParser lexemParser = BBLexemParser(errorPool);
-    
     ErrorPool_ptr errorPool2 = ErrorPool_ptr(new ErrorPool());
     
+    BBLexemParser lexemParser = BBLexemParser(errorPool);
+    
+    string lexemsText = getStingFromFileWithName("CommandBaseLexem.lex",
+                                               errorPool);
+    BBTokensAnalyzer_ptr analyzer = lexemParser.tokensAnalyzerFromString(lexemsText,
+                                                                         errorPool2);
+    
+    string errorString1 = errorPool->allErros();
+    printf("%s\n",errorString1.c_str());
     
     
-    BBTokensAnalyzer_ptr analyzer = lexemParser.tokensAnalyzerFromString("'const_string' : (('\"')|(((!('\"')),('\\\"'))*)|('\"'));'spasing':(' ')+;'number':['1''9']+|['0''9']*|(('.')?(['0''9']+));",errorPool2);
+    string programmText = getStingFromFileWithName("TestCommandProgramm.com",
+                                               errorPool2);
+    list<LexemString> testLexems = analyzer->lexemsFromSting(programmText);
     
-    list<LexemString> testLexems = analyzer->lexemsFromSting("\"hello\"   \"hui\" 9878987 87877.98 98. 09988");
-    
-    string errorString = errorPool2->allErros();
-    printf("%s",errorString.c_str());
+    string errorString2 = errorPool2->allErros();
+    printf("%s",errorString2.c_str());
     
     return 0;
 }

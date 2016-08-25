@@ -13,6 +13,7 @@
 #include <vector>
 #include "BBLexemString.hpp"
 #include "BBSyntacticObject.hpp"
+#include "BBErrorPool.hpp"
 
 using namespace std;
 
@@ -31,12 +32,15 @@ class BBSyntacticAnalyzer{
                                                 SyntacticObject_ptr currentObject);
     
     list<SyntacticObject_ptr> syntacticObject;
+    
 public:
+    ErrorPool_ptr errorPool;
+    
     void addSyntaxObject(SyntacticObject_ptr syntaxObject, string key);
     
     list<SyntacticResultObject_ptr> objectsFromLexems(vector<LexemString> lexems);
     
-    BBSyntacticAnalyzer ();
+    BBSyntacticAnalyzer (ErrorPool_ptr errorPool);
 };
 
 

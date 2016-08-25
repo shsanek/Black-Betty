@@ -32,6 +32,8 @@ void ConcatenationSyntacticObject::CurrentSyntacticResultObject::getData(Syntact
         data->addedArguments(Lexem_ptr(new ConcatenationLexem(alexems)));
     } else {
         //error
+        
+        data->errorPool->addErrors(Error_ptr(new TextAnalyzerError(this->lexem.position, 2 , "ConcatenationSyntacticObject" )));
     }
 }
 
