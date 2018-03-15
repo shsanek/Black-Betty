@@ -8,11 +8,13 @@
 
 #include "ByteCodeInterpletator.hpp"
 
-ByteCodeInterpletator::ByteCodeInterpletator(shared_ptr<__uint8_t> byteCode,
-                                             vector<void (*)(ByteCodeInterpletator*,BB::MemmoryController*)> commands){
-    this->byteCode = byteCode.get();
-    this->linkToByteCode = byteCode;
-    this->commands = commands;
+using namespace BB;
+
+ByteCodeInterpletator::ByteCodeInterpletator(vector<void (*)(ByteCodeInterpletator*,BB::MemmoryController*)> commands){
+    this->commands = new Command[commands.size()];
+    for (int i = 0; i < commands.size(); i++) {
+        this->commands[i] = commands[i];
+    }
     isStop = true;
 }
 
@@ -33,10 +35,25 @@ void ByteCodeInterpletator::run() {
     }
 }
 
+void ByteCodeInterpletator::load(shared_ptr<__uint8_t> byteCode){
+    this->byteCode = byteCode.get();
+    this->linkToByteCode = byteCode;
+    isStop = true;
+}
+
+void ByteCodeInterpletator::run(shared_ptr<__uint8_t> byteCode){
+    this->load(byteCode);
+    this->run();
+}
+
 void ByteCodeInterpletator::stop(){
     isStop = false;
 }
 
 void ByteCodeInterpletator::pause(){
     isPause = false;
+}
+
+ByteCodeInterpletator::~ByteCodeInterpletator(){
+    delete[] this->commands;
 }

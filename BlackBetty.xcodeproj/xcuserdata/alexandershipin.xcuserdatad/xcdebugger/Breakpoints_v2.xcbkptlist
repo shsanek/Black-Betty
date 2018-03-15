@@ -64,7 +64,7 @@
             startingLineNumber = "59"
             endingLineNumber = "59"
             landmarkName = "BBTokensAnalyzer::lexemsFromSting(string str)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,7 +80,7 @@
             startingLineNumber = "17"
             endingLineNumber = "17"
             landmarkName = "BBLexemParser::preprocessor(list&lt;LexemString&gt; lexems)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

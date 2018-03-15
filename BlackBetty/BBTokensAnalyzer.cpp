@@ -56,6 +56,9 @@ list<LexemString> BBTokensAnalyzer::lexemsFromSting(string str) {
                 errorPosition = Position_ptr(new Position(currentPosition));
             }
         } else {
+            if (errorLexemName.length()) {
+                resultList.push_back(LexemString(errorString,errorLexemName,*errorPosition));
+            }
             if (errorPosition) {
                 this->errorPool->addErrors(Error_ptr(new TextAnalyzerError(*errorPosition,1,"incorect lexem '" + errorString + "'","LexemAnalyzerError")));
             }

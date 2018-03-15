@@ -16,25 +16,34 @@
 
 using namespace std;
 
-class ByteCodeInterpletator{
-    __uint8_t* byteCode;
-    __uint8_t* currentPosition;
-    shared_ptr<__uint8_t> linkToByteCode;
-    BB::MemmoryController* memoryController;
-    vector<void (*)(ByteCodeInterpletator*,BB::MemmoryController*)> commands;
-    bool isStop;
-    bool isPause;
-public:
-    ByteCodeInterpletator(shared_ptr<__uint8_t> byteCode,
-                          vector<void (*)(ByteCodeInterpletator*,BB::MemmoryController*)> commands);
-    
-    virtual void nextCommand() ;
-    
-    virtual void run();
-    
-    virtual void stop();
-    
-    virtual void pause();
+namespace BB {
+    class ByteCodeInterpletator{
+        typedef void (*Command)(ByteCodeInterpletator*,BB::MemmoryController*) ;
+        __uint8_t* byteCode;
+        shared_ptr<__uint8_t> linkToByteCode;
+        BB::MemmoryController* memoryController;
+        Command* commands;
+        bool isStop;
+        bool isPause;
+    public:
+        __uint8_t* currentPosition;
+        
+        ByteCodeInterpletator(vector<void (*)(ByteCodeInterpletator*,BB::MemmoryController*)> commands);
+        
+        void nextCommand() ;
+        
+        virtual ~ByteCodeInterpletator();
+        
+        virtual void load(shared_ptr<__uint8_t> byteCode);
+        
+        virtual void run(shared_ptr<__uint8_t> byteCode);
+        
+        virtual void run();
+        
+        virtual void stop();
+        
+        virtual void pause();
+    };
 };
 
 #endif /* BBInterpletator_hpp */

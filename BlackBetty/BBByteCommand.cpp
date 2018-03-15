@@ -24,7 +24,7 @@ shared_ptr<ByteCommand::Argument> ByteCommand::nextArgument(shared_ptr<Argument>
 void ByteCommand::updateDataForArgument(shared_ptr<Argument> result) {
     Command::ArgumentInterface* ai = &command->arguments[result->index];
     result->interface = ai;
-    if (ai->type == Command::ArgumentInterface::ArgumentTypeConstant) {
+    if (ai->dataPosition == DataPositionTypeLinkConstant) {
         if (ai->size) {
             fixConstantSizeSize = shared_ptr<__uint32_t>(new __uint32_t(*((__uint32_t*)result->data)));
             result->size = sizeof(__uint32_t);
@@ -34,10 +34,12 @@ void ByteCommand::updateDataForArgument(shared_ptr<Argument> result) {
             //error
         }
     } else {
-        if (ai->type == Command::ArgumentInterface::ArgumentTypeConstantOffset) {
+        if (ai->addresType == AddresTypeConstant) {
             *((DEFAULT_INT_TYPE*)result->data) = *((DEFAULT_INT_TYPE*)result->data) + programmOffset;
         }
-        result->size = sizeof(void*);
+        if (ai->addresType != AddresTypeStack) {
+            result->size = sizeof(void*);
+        }
     }
     
 }

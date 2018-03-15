@@ -11,14 +11,20 @@
 
 #include <stdio.h>
 #include <string>
-
+#include "BBCommand.hpp"
+#include <list>
 
 using namespace std;
+
 
 namespace BB{
         
     class CommandMachine{
-        
+        list<Command_ptr> commands;
+    public:
+        void addCommand(Command_ptr command);
+        shared_ptr<ByteCodeGenerator> byteCodeGenerator();
+        shared_ptr<ByteCodeInterpletator> byteCodeInterpletator();
     };
 }
 

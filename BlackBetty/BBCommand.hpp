@@ -13,35 +13,38 @@
 #include <string>
 #include <vector>
 #include "BBMemmoryType.hpp"
+#include "BBPTRDefine.hpp"
+#include "BBByteCodeGenerator.hpp"
+#include "ByteCodeInterpletator.hpp"
+#include <list>
 
 using namespace std;
 
 
 namespace BB{
-    class ByteCodeInterpletator;
-    class MemmoryController;
-    
     class Command{
         friend class ByteCommand;
-        class ArgumentInterface{
-        public:
-            enum ArgumentType{
-                ArgumentTypeDefault,
-                ArgumentTypeConstantOffset,
-                ArgumentTypeConstant
-            };
-            ArgumentType type;
-            bool size;
-        };
-        
-        vector<ArgumentInterface> arguments;
         shared_ptr<__uint32_t> fixConstantSizeSize;
         bool getAutoConstantSize;
     public:
+        class ArgumentInterface{
+        public:
+            AddresType addresType;
+            DataPositionType dataPosition;
+            bool size;
+            bool getAutoConstantSize;
+        };
+        
         __uint32_t code;
         string name;
         void (*implementation)(ByteCodeInterpletator*,MemmoryController*);
+        Command(string name,void (*implementation)(ByteCodeInterpletator*,MemmoryController*),vector<ArgumentInterface> arguments);
+        Command(string name,void (*implementation)(ByteCodeInterpletator*,MemmoryController*),vector<ArgumentInterface> arguments,__uint32_t constSize);
+    private:
+        vector<ArgumentInterface> arguments;
     };
+    
+    PTRType(Command);
 }
 
 #endif /* BBCommand_hpp */

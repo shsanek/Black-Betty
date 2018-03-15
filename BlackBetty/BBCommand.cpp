@@ -10,3 +10,15 @@
 
 using namespace BB;
 
+Command::Command(string name,void (*implementation)(ByteCodeInterpletator*,MemmoryController*),vector<ArgumentInterface> arguments){
+    this->name = name;
+    this->implementation = implementation;
+    this->arguments = arguments;
+}
+
+Command::Command(string name,void (*implementation)(ByteCodeInterpletator*,MemmoryController*),vector<ArgumentInterface> arguments,__uint32_t constSize){
+    this->name = name;
+    this->implementation = implementation;
+    this->arguments = arguments;
+    this->fixConstantSizeSize = shared_ptr<__uint32_t>(new __uint32_t(constSize));
+}

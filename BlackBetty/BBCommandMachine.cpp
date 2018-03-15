@@ -7,3 +7,9 @@
 //
 
 #include "BBCommandMachine.hpp"
+
+using namespace BB;
+
+void CommandMachine::addCommand(Command_ptr command){
+    
+}
